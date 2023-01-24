@@ -249,6 +249,11 @@
 
     const demos = [
       {
+        "name": "Plain",
+        "demo": "./plain.html",
+        "url": "https://www.picoctf.org/"
+      },
+      {
         "name": "Pico",
         "demo": "./picoDemo.html",
         "url": "https://www.picoctf.org/"
@@ -322,24 +327,17 @@
       demoSelectRight.appendChild(optionRight);
     });
 
-    // demos.forEach((demo) => {
-    //   const option = document.createElement('option');
-    //   option.value = demo.demo;
-    //   option.innerText = demo.name;
-    //   demoSelectLeft.appendChild(option);
-    // });
-
 
     //
     // load the same demo in both iframes
     //
     demoSelectLeft.addEventListener('change', () => {
       selectedDemoLeft = demoSelectLeft.value;
-      leftIframe.src = selectedDemoLeft;
+      leftIframe.src = `${selectedDemoLeft}?classless=${leftSelect.value}`;
     });
     demoSelectRight.addEventListener('change', () => {
       selectedDemoRight = demoSelectRight.value;
-      rightIframe.src = selectedDemoRight;
+      rightIframe.src = `${selectedDemoLeft}?classless=${rightSelect.value}`;
     });
 
 
