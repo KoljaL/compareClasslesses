@@ -13,6 +13,14 @@
 
   </script>
   <style>
+    :root {
+      --color-bg: #333;
+      --color-text: #fff;
+      --color-border: black;
+      --width-border: 2px;
+      --height-header: 2.5rem;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -25,15 +33,21 @@
       display: none;
     }
 
+    html {
+      font-size: 16px;
+    }
+
     body {
       font-family: Arial, Helvetica, sans-serif;
-      font-size: 16px;
+      /* font-size: 16px; */
       line-height: 1.5;
-      background-color: #333;
-      color: #fff;
+      background-color: var(--color-bg);
+      color: var(--color-text);
     }
 
     header {
+      height: var(--height-header);
+      /* background: green; */
       padding: 1rem;
       padding-top: .5rem;
       position: fixed;
@@ -68,9 +82,7 @@
       display: flex;
       flex-direction: row;
       justify-content: space-around;
-      /* margin: .25rem; */
       margin-top: 2.5rem;
-      /* gap: 1rem; */
     }
 
     main.column {
@@ -82,6 +94,10 @@
     main .left {
       width: 50%;
       position: relative;
+    }
+
+    main .left {
+      border-right: var(--width-border) solid var(--color-border);
     }
 
     main.column .right,
@@ -96,22 +112,13 @@
       top: 0;
       background: #333;
       padding: .75rem;
-      border-bottom: 2px solid black;
+      border-bottom: var(--width-border) solid var(--color-border);
       right: 0;
       padding-inline: 1rem;
-      border-right: 2px solid black;
-      border-left: 2px solid black;
+      border-left: var(--width-border) solid var(--color-border);
       border-bottom-left-radius: .5rem;
 
     }
-
-    /* main .selectFieldsLeft {    } */
-
-
-    main .selectFieldsRight {
-      border-right: none
-    }
-
 
     select {
       cursor: pointer;
@@ -123,17 +130,23 @@
 
     iframe {
       width: 100%;
-      height: calc(100vh - 4.5rem);
-      border-top: 2px solid black;
+      height: calc(100vh - var(--height-header) + 2 * var(--width-border));
+      border-top: var(--width-border) solid var(--color-border);
     }
 
     .column iframe {
       width: 100%;
       height: calc(50vh - 2.25rem);
-      border: 2px solid #333;
+      border: 2px var(--width-border) solid var(--color-border);
     }
 
     @media screen and (max-width: 1250px) {
+
+      html {
+        font-size: 12px;
+      }
+
+
       main {
         flex-direction: column;
       }
@@ -141,6 +154,7 @@
       main .right,
       main .left {
         width: 100%;
+        border: none;
       }
 
       main .selectFieldsLeft {
@@ -149,15 +163,15 @@
       }
 
       main .selectFieldsRight {
-        top: 2px;
-        right: 2px;
+        /* top: 2px; */
+        /* right: 2px; */
 
       }
 
       iframe {
         width: 100%;
         height: calc(50vh - 1rem);
-        border: 2px solid #333;
+        /* border: 2px solid #333; */
       }
 
       #frameDirectionLabel {
