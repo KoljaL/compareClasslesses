@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA7m0iAO7u7gD///8A/4IiAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEREREREAAAERERREQRAAEREiIzNEEQEREiIjMzRBEREiERREM0QRESERFERDRBEREREURENEEREiIiMzM0QRESIiIzM0RBEREREUM0REERERERRDNEQRESIiIzMzRBERIiIjMzNEERERERREREQRERERFERERBERERERERERHgBwAAwAMAAIABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" rel="icon" type="image/x-icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>compare Classlesses</title>
+
+  <script>
+
+
+  </script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      background-color: #333;
+      color: #fff;
+    }
+
+    header {
+      padding: 1rem;
+      padding-top: .5rem;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: start;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    header h3 {
+      white-space: nowrap;
+    }
+
+    header .preferences {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      gap: 1rem;
+    }
+
+    header .preferences label,
+    header .selectFields label {
+      white-space: nowrap;
+    }
+
+
+    main {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      /* margin: .25rem; */
+      margin-top: 2.5rem;
+      /* gap: 1rem; */
+    }
+
+    main.column {
+      flex-direction: column;
+    }
+
+
+    main .right,
+    main .left {
+      width: 50%;
+      position: relative;
+    }
+
+    main.column .right,
+    main.column .left {
+      width: 100%;
+    }
+
+
+    main .selectFieldsRight,
+    main .selectFieldsLeft {
+      position: absolute;
+      top: 0;
+      background: #333;
+      padding: .75rem;
+      border-bottom: 2px solid black;
+      right: 0;
+      padding-inline: 1rem;
+      border-right: 2px solid black;
+      border-left: 2px solid black;
+      border-bottom-left-radius: .5rem;
+
+    }
+
+    /* main .selectFieldsLeft {    } */
+
+
+    main .selectFieldsRight {
+      border-right: none
+    }
+
+
+    select {
+      cursor: pointer;
+      padding: 0.25rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    iframe {
+      width: 100%;
+      height: calc(100vh - 4.5rem);
+      border-top: 2px solid black;
+    }
+
+    .column iframe {
+      width: 100%;
+      height: calc(50vh - 2.25rem);
+      border: 2px solid #333;
+    }
+
+    @media screen and (max-width: 1250px) {
+      main {
+        flex-direction: column;
+      }
+
+      main .right,
+      main .left {
+        width: 100%;
+      }
+
+      main .selectFieldsLeft {
+        border-right: none;
+        top: 0;
+      }
+
+      main .selectFieldsRight {
+        top: 2px;
+        right: 2px;
+
+      }
+
+      iframe {
+        width: 100%;
+        height: calc(50vh - 1rem);
+        border: 2px solid #333;
+      }
+
+      #frameDirectionLabel {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h3>compare Classlesses</h3>
+    <div class="preferences">
+      <label for="scrollSync">
+        <input type="checkbox" name="scrollSync" id="scrollSync">
+        Sync Scrolling
+      </label>
+      <label for="frameDirection" id="frameDirectionLabel">
+        <input type="checkbox" name="frameDirection" id="frameDirection">
+        Frame Direction
+      </label>
+    </div>
+  </header>
+
+  <main>
+    <div class="left">
+      <div class="selectFieldsLeft">
+        <label for="demoSelectLeft">HTML
+          <select name="demoleft" id="demoSelectLeft"></select>
+        </label>
+        <label for="leftSelect">CSS
+          <select name="left" id="leftSelect"></select>
+        </label>
+      </div>
+      <iframe src="picoDemo.html" frameborder="0"></iframe>
+    </div>
+
+    <div class="right">
+      <div class="selectFieldsRight">
+        <label for="demoSelectRight">HTML
+          <select name="demoright" id="demoSelectRight"></select>
+        </label>
+        <label for="rightSelect">CSS
+          <select name="right" id="rightSelect"></select>
+        </label>
+      </div>
+      <iframe src="picoDemo.html" frameborder="0"></iframe>
+    </div>
+  </main>
+  <script>
+
+    const demos = [
+      {
+        "name": "Pico",
+        "demo": "./picoDemo.html",
+        "url": "https://www.picoctf.org/"
+      },
+      {
+        "name": "Almond",
+        "demo": "./almondDemo.html",
+        "url": "https://www.picoctf.org/"
+      }
+    ];
+
+    const classlesses = [
+      {
+        "name": "Plain",
+        "classless": "./css/plain.css",
+        "url": "https://www.picoctf.org/"
+      },
+      {
+        "name": "Pico",
+        "classless": "./css/pico.css",
+        "url": "https://www.picoctf.org/"
+      },
+      {
+        "name": "Almond",
+        "classless": "./css/almond.css",
+        "url": "https://www.picoctf.org/"
+      }
+    ];
+
+
+    const leftSelect = document.querySelector('#leftSelect');
+    const rightSelect = document.querySelector('#rightSelect');
+    const leftIframe = document.querySelector('.left iframe');
+    const rightIframe = document.querySelector('.right iframe');
+    const demoSelectLeft = document.querySelector('#demoSelectLeft');
+    const demoSelectRight = document.querySelector('#demoSelectRight');
+    const scrollSync = document.querySelector('#scrollSync');
+    const frameDirection = document.querySelector('#frameDirection');
+    const main = document.querySelector('main');
+
+
+
+    var selectedDemoLeft = demos[0].demo;
+    var selectedDemoRight = demos[0].demo;
+    var selectedClasslessLeft = classlesses[0].classless;
+    var selectedClasslessRight = classlesses[1].classless;
+
+
+    // load the same classless in both iframes
+    document.addEventListener('DOMContentLoaded', () => {
+      leftSelect.value = selectedClasslessLeft;
+      rightSelect.value = selectedClasslessRight;
+      demoSelectLeft.value = selectedDemoLeft;
+      demoSelectRight.value = selectedDemoRight;
+      leftIframe.src = `${selectedDemoLeft}?classless=${selectedClasslessLeft}`;
+      rightIframe.src = `${selectedDemoRight}?classless=${selectedClasslessRight}`;
+    });
+
+
+    //
+    // populate the demo select element
+    //
+    demos.forEach((demo) => {
+      const optionLeft = document.createElement('option');
+      const optionRight = document.createElement('option');
+      optionLeft.value = demo.demo;
+      optionRight.value = demo.demo;
+      optionLeft.innerText = demo.name;
+      optionRight.innerText = demo.name;
+      demoSelectLeft.appendChild(optionLeft);
+      demoSelectRight.appendChild(optionRight);
+    });
+
+    // demos.forEach((demo) => {
+    //   const option = document.createElement('option');
+    //   option.value = demo.demo;
+    //   option.innerText = demo.name;
+    //   demoSelectLeft.appendChild(option);
+    // });
+
+
+    //
+    // load the same demo in both iframes
+    //
+    demoSelectLeft.addEventListener('change', () => {
+      selectedDemoLeft = demoSelectLeft.value;
+      leftIframe.src = selectedDemoLeft;
+    });
+    demoSelectRight.addEventListener('change', () => {
+      selectedDemoRight = demoSelectRight.value;
+      rightIframe.src = selectedDemoRight;
+    });
+
+
+    //
+    // populate the select elements with the classlesses
+    //
+    classlesses.forEach((classless) => {
+      const option = document.createElement('option');
+      option.value = classless.classless;
+      option.innerText = classless.name;
+      leftSelect.appendChild(option.cloneNode(true));
+      rightSelect.appendChild(option.cloneNode(true));
+    });
+
+
+    //
+    // load the same classless in both iframes 
+    //
+    leftSelect.addEventListener('change', () => {
+      selectedClasslessLeft = leftSelect.value || selectedClasslessLeft;
+      leftIframe.src = `${selectedDemoLeft}?classless=${leftSelect.value}`;
+    });
+    rightSelect.addEventListener('change', () => {
+      selectedClasslessRight = rightSelect.value || selectedClasslessRight;
+      rightIframe.src = `${selectedDemoLeft}?classless=${rightSelect.value}`;
+    });
+
+
+
+    //
+    // toggle sync scrolling  
+    //
+    scrollSync.addEventListener('change', () => {
+      if (scrollSync.checked) {
+        leftIframe.contentWindow.addEventListener('scroll', handleLeftScroll);
+        rightIframe.contentWindow.addEventListener('scroll', handleRightScroll);
+      } else {
+        leftIframe.contentWindow.removeEventListener('scroll', handleLeftScroll);
+        rightIframe.contentWindow.removeEventListener('scroll', handleRightScroll);
+      }
+    });
+
+    const handleLeftScroll = () => {
+      rightIframe.contentWindow.scrollTo({
+        top: leftIframe.contentWindow.scrollY,
+        left: leftIframe.contentWindow.scrollX,
+      });
+    };
+
+    const handleRightScroll = () => {
+      leftIframe.contentWindow.scrollTo({
+        top: rightIframe.contentWindow.scrollY,
+        left: rightIframe.contentWindow.scrollX,
+      });
+    };
+
+
+    //
+    // toggle frame direction
+    //
+    frameDirection.addEventListener('change', () => {
+      if (frameDirection.checked) {
+        main.classList.add('column');
+      } else {
+        main.classList.remove('column');
+      }
+    });
+
+  </script>
+</body>
+
+</html>
