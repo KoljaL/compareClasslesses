@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PureCSS</title>
+  <script src="./js/script.js"></script>
+  <style>
+    .spacer {
+      height: 50px;
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 50px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <section>
+    <h2>Menu</h2>
+
+    <h3>Horizontal</h3>
+
+    <div class="pure-menu pure-menu-horizontal">
+      <a href="#" class="pure-menu-heading pure-menu-link">BRAND</a>
+      <ul class="pure-menu-list">
+        <li class="pure-menu-item">
+          <a href="#" class="pure-menu-link">News</a>
+        </li>
+        <li class="pure-menu-item">
+          <a href="#" class="pure-menu-link">Sports</a>
+        </li>
+        <li class="pure-menu-item">
+          <a href="#" class="pure-menu-link">Finance</a>
+        </li>
+      </ul>
+    </div>
+    <div class="spacer"></div>
+
+    <h3>Vertical</h3>
+    <div class="pure-menu" style="width: 200px;">
+      <span class="pure-menu-heading">Yahoo Sites</span>
+      <ul class="pure-menu-list">
+        <li class="pure-menu-item">
+          <a href="#" class="pure-menu-link">Flickr</a>
+        </li>
+        <li class="pure-menu-item">
+          <a href="#" class="pure-menu-link">Messenger</a>
+        </li>
+        <li class="pure-menu-item">
+          <a href="#" class="pure-menu-link">Sports</a>
+        </li>
+        <li class="pure-menu-item">
+          <a href="#" class="pure-menu-link">Finance</a>
+        </li>
+        <li class="pure-menu-heading">More Sites</li>
+        <li class="pure-menu-item">
+          <a href="#" class="pure-menu-link">Games</a>
+        </li>
+        <li class="pure-menu-item">
+          <a href="#" class="pure-menu-link">News</a>
+        </li>
+        <li class="pure-menu-item">
+          <a href="#" class="pure-menu-link">OMG!</a>
+        </li>
+      </ul>
+    </div>
+    <div class="spacer"></div>
+
+    <h3>Dropdown</h3>
+    <div class="pure-menu pure-menu-horizontal">
+      <ul class="pure-menu-list">
+        <li class="pure-menu-item pure-menu-selected">
+          <a href="#" class="pure-menu-link">Home</a>
+        </li>
+        <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+          <a href="#" id="menuLink1" class="pure-menu-link">Contact</a>
+          <ul class="pure-menu-children">
+            <li class="pure-menu-item">
+              <a href="#" class="pure-menu-link">Email</a>
+            </li>
+            <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+              <a href="#" id="menuLink1" class="pure-menu-link">Contact</a>
+              <ul class="pure-menu-children">
+                <li class="pure-menu-item">
+                  <a href="#" class="pure-menu-link">Email</a>
+                </li>
+                <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+                  <a href="#" id="menuLink1" class="pure-menu-link">Contact</a>
+                  <ul class="pure-menu-children">
+                    <li class="pure-menu-item">
+                      <a href="#" class="pure-menu-link">Email</a>
+                    </li>
+                    <li class="pure-menu-item">
+                      <a href="#" class="pure-menu-link">Twitter</a>
+                    </li>
+                    <li class="pure-menu-item">
+                      <a href="#" class="pure-menu-link">Tumblr Blog</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="pure-menu-item">
+                  <a href="#" class="pure-menu-link">Tumblr Blog</a>
+                </li>
+              </ul>
+            </li>
+            <li class="pure-menu-item">
+              <a href="#" class="pure-menu-link">Tumblr Blog</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="spacer"></div>
+
+    <h3>Vertical Menu with Submenus </h3>
+    <div class="pure-menu custom-restricted-width">
+      <ul class="pure-menu-list">
+        <li class="pure-menu-item pure-menu-selected">
+          <a href="#" class="pure-menu-link">Flickr</a>
+        </li>
+        <li class="pure-menu-item">
+          <a href="#" class="pure-menu-link">Messenger</a>
+        </li>
+        <li class="pure-menu-item">
+          <a href="#" class="pure-menu-link">Sports</a>
+        </li>
+        <li class="pure-menu-item">
+          <a href="#" class="pure-menu-link">Finance</a>
+        </li>
+        <li class="pure-menu-item pure-menu-has-children">
+          <a href="#" id="menuLink1" class="pure-menu-link">More</a>
+          <ul class="pure-menu-children">
+            <li class="pure-menu-item">
+              <a href="#" class="pure-menu-link">Autos</a>
+            </li>
+            <li class="pure-menu-item">
+              <a href="#" class="pure-menu-link">Flickr</a>
+            </li>
+            <li class="pure-menu-item pure-menu-has-children">
+              <a href="#" id="menuLink1" class="pure-menu-link">Even More</a>
+              <ul class="pure-menu-children">
+                <li class="pure-menu-item">
+                  <a href="#" class="pure-menu-link">Foo</a>
+                </li>
+                <li class="pure-menu-item">
+                  <a href="#" class="pure-menu-link">Bar</a>
+                </li>
+                <li class="pure-menu-item">
+                  <a href="#" class="pure-menu-link">Baz</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="spacer"></div>
+
+
+  </section>
+  <section>
+    <h2>Grid</h2>
+    <div class="grids-example">
+      <div class="pure-g">
+        <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+          <div class="l-box">
+            <h3>Lorem Ipsum</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+          </div>
+        </div>
+        <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+          <div class="l-box">
+            <h3>Dolor Sit Amet</h3>
+            <p>Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
+          </div>
+        </div>
+        <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+          <div class="l-box">
+            <h3>Proident laborum</h3>
+            <p>In culpa qui officia deserunt mollit anim id est laborum. incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+          </div>
+        </div>
+        <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+          <div class="l-box">
+            <h3>Praesent consectetur</h3>
+            <p>Integer vitae lectus accumsan, egestas dui eget, ullamcorper urn. In feugiat tortor at turpis rhoncus tincidunt. Duis sed porttitor ante, eget venenatis lectus.</p>
+          </div>
+        </div>
+        <div class="pure-u-1"><img class="pure-img" src="https://s3.amazonaws.com/ooomf-com-files/wjNV6gWuQkqeuH8txHc9_sylwiabartyzel_unsplash_tatry_03.jpg" alt="By Sylwia Bartyzel from unsplash.com"></div>
+        <div class="pure-u-2-5">
+          <div class="l-box">
+            <h3>Two-Fifth Column</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur fermentum dui turpis.</p>
+          </div>
+        </div>
+        <div class="pure-u-3-5">
+          <div class="l-box">
+            <h3>Three-Fifth Column</h3>
+            <p>Quisque ac magna eget est porta varius ut eget quam. Curabitur tincidunt gravida nisl.</p>
+            <p>Fusce accumsan, sem vitae tempus tempor, nulla lectus interdum felis, eget molestie urna mauris vel elit. Curabitur vel ipsum nulla.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+
+</html>

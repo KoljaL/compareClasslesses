@@ -43,6 +43,7 @@
       line-height: 1.5;
       background-color: var(--color-bg);
       color: var(--color-text);
+      height: 100vh;
     }
 
     header {
@@ -81,7 +82,8 @@
     main {
       display: flex;
       flex-direction: row;
-      justify-content: space-around;
+      /* justify-content: space-around; */
+      height: 100%;
       margin-top: 2.5rem;
     }
 
@@ -92,17 +94,37 @@
 
     main .right,
     main .left {
-      width: 50%;
+      /* width: 50%; */
+      flex-grow: 1;
       position: relative;
     }
 
+
+    main .right iframe,
+    main .left iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      /* display: none; */
+      /* height: calc(100vh - var(--height-header) + 2 * var(--width-border)); */
+      /* border-top: var(--width-border) solid var(--color-border); */
+
+    }
+
+
+
     main .left {
-      border-right: var(--width-border) solid var(--color-border);
+      /* border-right: var(--width-border) solid var(--color-border); */
     }
 
     main.column .right,
     main.column .left {
       width: 100%;
+      height: 50%;
       border: none;
     }
 
@@ -121,6 +143,7 @@
       border-bottom-left-radius: .5rem;
       display: flex;
       gap: .75rem;
+      z-index: 1;
     }
 
     select {
@@ -163,6 +186,25 @@
       border: 2px var(--width-border) solid var(--color-border);
     }
 
+    .resizerDIV {
+      width: 10px;
+      background-color: var(--color-bg);
+      border: 2px solid black;
+      cursor: col-resize;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .resizerDIV:hover {
+      background-color: var(--color-text);
+
+    }
+
+    .column .resizerDIV {
+      height: 10px;
+      width: 100%;
+      cursor: row-resize;
+    }
+
     @media screen and (max-width: 1250px) {
 
       html {
@@ -200,6 +242,11 @@
       #frameDirectionLabel {
         display: none;
       }
+
+      .resizerDIV {
+        height: 10px;
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -232,7 +279,7 @@
       </div>
       <iframe src="picoDemo.html" frameborder="0"></iframe>
     </div>
-
+    <div class="resizerDIV"></div>
     <div class="right">
       <div class="selectFieldsRight">
         <label for="demoSelectRight">HTML
@@ -263,6 +310,10 @@
         "name": "Almond",
         "demo": "./almondDemo.html",
         "url": "https://www.picoctf.org/"
+      }, {
+        "name": "Pure",
+        "demo": "./pureDemo.html",
+        "url": "https://www.picoctf.org/"
       }
     ];
 
@@ -286,13 +337,21 @@
         "name": "Almond",
         "classless": "./css/almond.css",
         "url": "https://www.picoctf.org/"
+      },
+      {
+        "name": "Pure",
+        "classless": "./css/pure.css",
+        "url": "https://www.picoctf.org/"
       }
     ];
 
 
     const leftSelect = document.querySelector('#leftSelect');
     const rightSelect = document.querySelector('#rightSelect');
+    const resizerDIV = document.querySelector('.resizerDIV');
+    const left = document.querySelector('.left');
     const leftIframe = document.querySelector('.left iframe');
+    const right = document.querySelector('.right');
     const rightIframe = document.querySelector('.right iframe');
     const demoSelectLeft = document.querySelector('#demoSelectLeft');
     const demoSelectRight = document.querySelector('#demoSelectRight');
@@ -302,9 +361,9 @@
 
 
 
-    var selectedDemoLeft = demos[0].demo;
+    var selectedDemoLeft = demos[3].demo;
     var selectedDemoRight = demos[0].demo;
-    var selectedClasslessLeft = classlesses[0].classless;
+    var selectedClasslessLeft = classlesses[4].classless;
     var selectedClasslessRight = classlesses[1].classless;
 
 
@@ -316,8 +375,22 @@
       demoSelectRight.value = selectedDemoRight;
       leftIframe.src = `${selectedDemoLeft}?classless=${selectedClasslessLeft}`;
       rightIframe.src = `${selectedDemoRight}?classless=${selectedClasslessRight}`;
+      initResizer()
     });
 
+    window.addEventListener('resize', initResizer);
+
+
+    //
+    // initialize the resizer
+    //
+    function initResizer() {
+      if (window.matchMedia("(max-width: 1250px)").matches) {
+        resize(resizerDIV, left, right, 'vertical')
+      } else {
+        resize(resizerDIV, left, right, 'horizontal')
+      }
+    }
 
     //
     // populate the demo select element
@@ -406,12 +479,117 @@
     //
     frameDirection.addEventListener('change', () => {
       if (frameDirection.checked) {
+        resize(resizerDIV, left, right, 'vertical')
         main.classList.add('column');
       } else {
+        resize(resizerDIV, left, right, 'horizontal')
         main.classList.remove('column');
       }
     });
 
+    /**
+     *
+     * resize elements
+     *
+     */
+    function resize(resizer, prevEl, nextEl, direction = 'horizontal') {
+      let x = 0
+      let y = 0
+      let NextMaxWidth = 0
+      let PrevMaxWidth = 0
+      let NextMaxHeight = 0
+      let PrevMaxHeight = 0
+
+
+      // if eventhandler exists, remove it and reset the elements
+      if (resizer.onmousedown) {
+        resizer.onmousedown = null
+        prevEl.style.width = ''
+        prevEl.style.maxWidth = ''
+        prevEl.style.height = ''
+        prevEl.style.maxHeight = ''
+        nextEl.style.width = ''
+        nextEl.style.maxWidth = ''
+        nextEl.style.height = ''
+        nextEl.style.maxHeight = ''
+      }
+
+
+      const mouseDownHandler = function (e) {
+        // console.log('resizer', resizer)
+        // console.log('direction', direction)
+        // console.log('prevEl', prevEl)
+        // console.log('nextEl', nextEl)
+        // console.log(' ')
+
+        if (direction === 'horizontal') {
+          x = e.clientX
+          PrevWidth = prevEl.getBoundingClientRect().width
+          PrevMaxWidth = prevEl.getBoundingClientRect().width
+          NextMaxWidth = nextEl.getBoundingClientRect().width
+        }
+        // vertically
+        else {
+          y = e.clientY
+          PrevHeight = prevEl.getBoundingClientRect().height
+          PrevMaxHeight = prevEl.getBoundingClientRect().height
+          NextMaxHeight = nextEl.getBoundingClientRect().height
+        }
+        // add event listeners
+        document.addEventListener('mousemove', mouseMoveHandler)
+        document.addEventListener('mouseup', mouseUpHandler)
+      }
+
+      const mouseMoveHandler = function (e) {
+        if (direction === 'horizontal') {
+          const dx = e.clientX - x
+          const newPrevMaxWidth = PrevMaxWidth + dx
+          const newNextMaxWidth = NextMaxWidth - dx
+          const newPrevWidth = ((PrevWidth + dx) * 100) / resizer.parentNode.getBoundingClientRect().width
+          prevEl.style.width = `${newPrevWidth}%`
+          prevEl.style.maxWidth = `${newPrevMaxWidth}px`
+          nextEl.style.maxWidth = `${newNextMaxWidth}px`
+          // STYLE
+          resizer.style.cursor = 'col-resize'
+          document.body.style.cursor = 'col-resize'
+        }
+        // vertically
+        else {
+          const dy = e.clientY - y
+          const newPrevMaxHeight = PrevMaxHeight + dy
+          const newNextMaxHeight = NextMaxHeight - dy
+          const newPrevHeight = ((PrevHeight + dy) * 100) / resizer.parentNode.getBoundingClientRect().height
+
+          prevEl.style.height = `${newPrevHeight}%`
+          prevEl.style.maxHeight = `${newPrevMaxHeight}px`
+          nextEl.style.maxHeight = `${newNextMaxHeight}px`
+          // STYLE
+          resizer.style.cursor = 'row-resize'
+          document.body.style.cursor = 'row-resize'
+        }
+        // STYLE
+        prevEl.style.userSelect = 'none'
+        prevEl.style.pointerEvents = 'none'
+        nextEl.style.userSelect = 'none'
+        nextEl.style.pointerEvents = 'none'
+      }
+
+      const mouseUpHandler = function () {
+        document.removeEventListener('mousemove', mouseMoveHandler)
+        document.removeEventListener('mouseup', mouseUpHandler)
+
+        // STYLE
+        resizer.style.removeProperty('cursor')
+        document.body.style.removeProperty('cursor')
+        prevEl.style.removeProperty('user-select')
+        prevEl.style.removeProperty('pointer-events')
+        nextEl.style.removeProperty('user-select')
+        nextEl.style.removeProperty('pointer-events')
+      }
+
+      // resizer.addEventListener('mousedown', mouseDownHandler)
+      resizer.onmousedown = function (e) {mouseDownHandler(e)};
+    }
   </script>
 </body>
 
