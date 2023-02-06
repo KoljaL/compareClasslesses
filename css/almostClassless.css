@@ -11,15 +11,20 @@
 :root,
 :root[data-theme='light'] {
     /* Colors */
-    --primaryH: 210;
-    --primaryHI: 210deg;
-    --primaryS: 50%;
-    --primaryL: 40%;
-    --primary-bg: hsl(0, 0%, 100%);
-    --secondaryH: 0;
-    --secondaryS: 0%;
-    --secondaryL: 13%;
-    --secondary-bg: hsl(0, 0%, 100%);
+    --color-text-H: 0;
+    --color-text-S: 0%;
+    --color-text-L: 10%;
+    --color-link-H: 268;
+    --color-link-S: 50%;
+    --color-link-L: 50%;
+    --color-background-H: 0;
+    --color-background-S: 0%;
+    --color-background-L: 94%;
+    --alpha-transparent: 0.05;
+    --alpha-low: 1.5;
+    --alpha-lowest: 1.25;
+    --alpha-high: 0.25;
+    --alpha-highest: 0.5;
     /* Status */
     --error: #d00;
     --warning: #ec0;
@@ -43,15 +48,20 @@
 
 :root[data-theme='dark'] {
     /* Colors */
-    --primaryH: 210;
-    --primaryHI: 210deg;
-    --primaryS: 50%;
-    --primaryL: 40%;
-    --primary-bg: hsl(213, 16%, 24%);
-    --secondaryH: 0;
-    --secondaryS: 0%;
-    --secondaryL: 70%;
-    --secondary-bg: hsl(215, 18%, 13%);
+    --color-text-H: 0;
+    --color-text-S: 0%;
+    --color-text-L: 90%;
+    --color-link-H: 268;
+    --color-link-S: 50%;
+    --color-link-L: 70%;
+    --color-background-H: 0;
+    --color-background-S: 0%;
+    --color-background-L: 14%;
+    --alpha-transparent: 0.05;
+    --alpha-low: 0.5;
+    --alpha-lowest: 0.25;
+    --alpha-high: 1.25;
+    --alpha-highest: 1.5;
     /* Status */
     --error: #d00;
     --warning: #ec0;
@@ -88,19 +98,27 @@
     /* Inputs */
     --border-radius: 2px;
     /* Calculated colors */
-    --primary: hsl(var(--primaryH), var(--primaryS), var(--primaryL));
-    --primary-bright: hsl(var(--primaryH), calc(var(--primaryS) * 1.25), 90%);
-    --primary-transparent: hsla(var(--primaryH), var(--primaryS), var(--primaryL), 0.05);
-    --primary-dark: hsl(var(--primaryH), var(--primaryS), calc(var(--primaryL) * 0.75));
-    --primary-darker: hsl(var(--primaryH), var(--primaryS), calc(var(--primaryL) * 0.5));
-    --primary-light: hsl(var(--primaryH), var(--primaryS), calc(var(--primaryL) * 1.25));
-    --primary-lighter: hsl(var(--primaryH), var(--primaryS), calc(var(--primaryL) * 1.5));
-    --secondary: hsl(var(--secondaryH), var(--secondaryS), var(--secondaryL));
-    --secondary-transparent: hsl(var(--secondaryH), var(--secondaryS), var(--secondaryL), 0.05);
-    --secondary-dark: hsl(var(--secondaryH), var(--secondaryS), calc(var(--secondaryL) * 0.75));
-    --secondary-darker: hsl(var(--secondaryH), var(--secondaryS), calc(var(--secondaryL) * 0.5));
-    --secondary-light: hsl(var(--secondaryH), var(--secondaryS), calc(var(--secondaryL) * 1.25));
-    --secondary-lighter: hsl(var(--secondaryH), var(--secondaryS), calc(var(--secondaryL) * 1.5));
+    --color-text: hsl(var(--color-text-H), var(--color-text-S), var(--color-text-L));
+    --color-text-transparent: hsla(var(--color-text-H), var(--color-text-S), var(--color-text-L) * var(--alpha-transparent));
+    --color-text-low: hsl(var(--color-text-H), var(--color-text-S), calc(var(--color-text-L) * var(--alpha-low)));
+    --color-text-lowest: hsl(var(--color-text-H), var(--color-text-S), calc(var(--color-text-L) * var(--alpha-lowest)));
+    --color-text-high: hsl(var(--color-text-H), var(--color-text-S), calc(var(--color-text-L) * var(--alpha-high)));
+    --color-text-highest: hsl(var(--color-text-H), var(--color-text-S), calc(var(--color-text-L) * var(--alpha-highest)));
+
+    --color-link: hsl(var(--color-link-H), var(--color-link-S), var(--color-link-L));
+    --color-link-transparent: hsl(var(--color-link-H), var(--color-link-S), var(--color-link-L) * var(--alpha-transparent));
+    --color-link-low: hsl(var(--color-link-H), var(--color-link-S), calc(var(--color-link-L) * var(--alpha-low)));
+    --color-link-lowest: hsl(var(--color-link-H), var(--color-link-S), calc(var(--color-link-L) * var(--alpha-lowest)));
+    --color-link-high: hsl(var(--color-link-H), var(--color-link-S), calc(var(--color-link-L) * var(--alpha-high)));
+    --color-link-highest: hsl(var(--color-link-H), var(--color-link-S), calc(var(--color-link-L) * var(--alpha-highest)));
+
+    --color-background: hsl(var(--color-background-H), var(--color-background-S), var(--color-background-L));
+    --color-background-transparent: hsl(var(--color-background-H), var(--color-background-S), var(--color-background-L) * var(--alpha-transparent));
+    --color-background-low: hsl(var(--color-background-H), var(--color-background-S), calc(var(--color-background-L) * var(--alpha-low)));
+    --color-background-lowest: hsl(var(--color-background-H), var(--color-background-S), calc(var(--color-background-L) * var(--alpha-lowest)));
+    --color-background-high: hsl(var(--color-background-H), var(--color-background-S), calc(var(--color-background-L) * var(--alpha-high)));
+    --color-background-highest: hsl(var(--color-background-H), var(--color-background-S), calc(var(--color-background-L) * var(--alpha-highest)));
+
     /*pico or pure css*/
     --border-radius: 0.25rem;
     --border-width: 1px;
@@ -117,9 +135,13 @@
     --nav-link-spacing-horizontal: 0.5rem;
     --form-label-font-weight: var(--font-weight);
     --transition: 0.2s ease-in-out;
+    --transition-color: 0.5s ease-in-out;
     --modal-overlay-backdrop-filter: blur(0.25rem);
 }
 
+/*
+ * FONT
+ */
 @font-face {
     font-family: Overpass-Light;
     src: url('../font/Overpass-Light.woff2') format('woff2');
@@ -159,10 +181,18 @@ html {
 }
 
 body {
-    background-color: #fff;
-    color: #000;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    transition: all var(--transition-color);
 }
 
+a {
+    color: var(--color-link);
+    text-decoration: none;
+    font-size: var(--font-size-link);
+    font-weight: var(--font-weight);
+    transition: var(--transition);
+}
 /*
  * HEADINGS
  */

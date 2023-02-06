@@ -1,6 +1,6 @@
 // add CSS to header
-var style = document.createElement('style');
-style.innerHTML = /*CSS*/ `
+var STYLE = document.createElement('style');
+STYLE.innerHTML = /*CSS*/ `
 .theme-toggle.theme-toggle--reversed .theme-toggle__classic {
   transform: scale(-1, 1);
 }
@@ -42,10 +42,12 @@ style.innerHTML = /*CSS*/ `
 }
 
 .theme-toggle {
+  --theme-toggle__classic--duration: 0.3s;
   border: none;
-  background: 0 0;
   cursor: pointer;
-  margin-right: .5rem;
+  width: 32px;
+  height: 32px;
+  margin-bottom: 10px;
 }
 
 .theme-toggle input[type="checkbox"] {
@@ -63,18 +65,31 @@ style.innerHTML = /*CSS*/ `
   white-space: nowrap;
   border-width: 0;
 }
+
+#sunmoon {
+  cursor: pointer;
+  fill:var(--page-color);
+  stroke:var(--page-color);
+  transition: filter 0.3s ease;
+}
+
+#sunmoon:hover {
+  filter: brightness(1.2);
+}
+ 
 `;
 
 const HTML = /*HTML*/ `
-<input type="checkbox" />
+<label for="theme-toggle">
+<input type="checkbox" id="theme-toggle"/>
 <span class="theme-toggle-sr">Toggle theme</span>
-<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="32px" height="32px" fill="red" stroke-linecap="round" class="theme-toggle__classic" viewBox="0 0 32 32">
+<svg id="sunmoon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="32px" height="32px"   stroke-linecap="round" class="theme-toggle__classic" viewBox="0 0 32 32">
   <clipPath id="theme-toggle__classic__cutout">
     <path d="M0-5h30a1 1 0 0 0 9 13v24H0Z" />
   </clipPath>
   <g clip-path="url(#theme-toggle__classic__cutout)">
     <circle cx="16" cy="16" r="9.34" />
-    <g stroke="red" stroke-width="1.5">
+    <g   stroke-width="1.5">
       <path d="M16 5.5v-4" />
       <path d="M16 30.5v-4" />
       <path d="M1.5 16h4" />
@@ -85,7 +100,20 @@ const HTML = /*HTML*/ `
       <path d="m23.4 23.4 2.9 2.9" />
     </g>
   </g>
-</svg>`;
+</svg>
+</label>
+`;
+
+// add style to the page
+document.getElementsByTagName('HEAD')[0].appendChild(STYLE);
+// add icon to the page
+document.querySelector('.theme-toggle').innerHTML = HTML;
+// define eventListener for the toggleThemeButton
+document.querySelector('#theme-toggle').addEventListener('change', () => {
+    dataTheme = dataTheme === 'light' ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', dataTheme);
+    window.localStorage.setItem('data-theme', dataTheme);
+});
 
 // document.onload = () => {
 //     const faviconEl = document.querySelector('link[rel="icon"]');
@@ -102,21 +130,22 @@ const HTML = /*HTML*/ `
 
 // toggleTheme();
 
-function toggleTheme() {
-    var currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-    var targetTheme = 'light';
-    faviconEl.setAttribute('href', 'img/favicon-light.png');
-    if (currentTheme === 'light') {
-        targetTheme = 'dark';
-        faviconEl.setAttribute('href', 'img/favicon-dark.png');
-    }
-    document.documentElement.setAttribute('data-theme', targetTheme);
-    // localStorage.setItem('theme', targetTheme);
-}
+// function toggleTheme() {
+//     var currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+//     var targetTheme = 'light';
+//     faviconEl.setAttribute('href', 'img/favicon-light.png');
+//     if (currentTheme === 'light') {
+//         targetTheme = 'dark';
+//         faviconEl.setAttribute('href', 'img/favicon-dark.png');
+//     }
+//     document.documentElement.setAttribute('data-theme', targetTheme);
+//     // localStorage.setItem('theme', targetTheme);
+// }
 
-const faviconEl = document.querySelector('link[rel="icon"]');
-document.getElementsByTagName('HEAD')[0].appendChild(style);
-document.querySelector('.theme-toggle').innerHTML = HTML;
-document.querySelector('.theme-toggle').addEventListener('change', () => {
-    toggleTheme();
-});
+// const faviconEl = document.querySelector('link[rel="icon"]');
+
+// document.querySelector('.theme-toggle').addEventListener('change', () => {
+//     toggleTheme();
+// });
+
+// var dataTheme = document.documentElement.getAttribute('data-theme', dataTheme);
