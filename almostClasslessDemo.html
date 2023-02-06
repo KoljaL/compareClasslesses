@@ -1,0 +1,770 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML5 Test Page</title>
+  <link rel="shortcut icon"
+    href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAAXNSR0IB2cksfwAAAAlwSFlzAAAN1wAADdcBQiibeAAAAbZQTFRFAAAA/1ci/1ci/1ci/1ci/1ci/1ci/1ci/2At/2Ew/18s/1ci/2Ix/2Ix/1ci/2Mx/2Mx/1ci/2Au/2At/1ci/1ci/2Ev/2Iw/18t/1sn/1ci/1ci/2Au/1sn/1ci/1ci/1ci/10p/1on/1ci/1ci/14r/1wp/1ci/1ci/1wo/Z+B/Z+B/1om/1ci/1ci/1om/NHE/NHE/1kl/1ci/1ci/oNc/oNd/1ci/1ci/10q/1om/2Ev/2o8/1ci/1ci/2k6/2g4/1ci/1ci/2My/3FE/21A/mw9/2Au/1ci/1ci/2Ev/pBu/pBu/2Ew/1ci/1ci/10p++DX/1ol/1sn/1ci/1ci/1so/2U1/2Au/10q/1gk/10q/2Au/2g4/1wo/1ci/1ci/1ci/1wo/3lP/nlP/1ci/1ci/1sn/Zx9/Zt7/1ci/1ci/1kl/1wp/2Ev/nlQ/nRI/2Eu/1wo/1ci/1ci/1gj/1sn/14r/2Uz/2U0/10q/1on/1ci/1ci/1ci/1ci/1ci/1ci/1ci/1ci/1ci/1ci/1ci/1ci/1ci/1ci/1ci/1ci/1ci/1ci/1ci/1ci/1ci/1cirY2PbQAAAJJ0Uk5TAPD/1bqfhGnw7PJWPFtEUHgyYpIxIHqqs+MfDpbmDQH6r9P36M3D3NbmCQ3wwcT+BQT+prIfH4ugnoYiOHCINVVabY4zWSFuSFKLGRGLNjehAfv6JByzPH7Q/8h1NrQSBPzGExMC5dwEBOTK9LlyHid7v8mv/9mgVlim366TeP37UUmR3SNktfn2rF4LQNB7OwipoSOCAAABhklEQVR4nHWSZVsCURBGB0EMFLsV7O7uLkywxUAxMLA7wG5F/cfO3L2ssLDzZc773vMsdwEAUATIjgJolPKCkgkqeUHFhEB5IZAJanlBzYQgwuAQyYRSG8QEDWEYSCacWg1DLWGEVIikVsswijBaKsRQG8swjjAeISHRY5KoTWZCCmEqQprPW+iYoE9HzEDIlJ5n6YWPy0bOwZ0rFfL4ffKRC3AXFnlMMZYlXChFLiv3fomKSiyreKimx9V4C7XU1fFQT6Gh8X+aAJqpa+FCq/RybQDttDu40Emhq7u7xy30AvTR7ueCgcIAwKBbGAIYpj3ChVEKRgDTmHA+bgIwEkxwYZLCFML0zKzZPDe/gLhInYULS8sYrAKvrArbitXymvul1zHZNjy/hk0bVlti3Kbn2Xd294S4f3Bop+ZIFI757U9Oz84vLq9OeLwWBYfPH4GNQxSc/gWnKBhu/J3f3v1f2nL/8Oh9+tiq1Xn/vvqn55dX4fDt/eNJD/7m80vtcn3//Hp2f4KVOgqbZCheAAAAAElFTkSuQmCC"
+    type="image/x-icon">
+
+
+
+  <!-- <script src="./js/script.js"></script> -->
+  <link rel="stylesheet" href="css/nomalize.css">
+  <link rel="stylesheet" href="css/almostClassless.css">
+  <!-- <link rel="stylesheet" href="css/pure.css"> -->
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --page-width: 80rem;
+      --header-height: 4rem;
+      --footer-height: 1rem;
+      --page-padding: 1rem;
+      --page-margin: 1rem;
+    }
+
+    body {
+      max-width: var(--page-width);
+      min-height: 100vh;
+      overflow: hidden;
+      margin-inline: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .page__header {
+      position: relative;
+      width: 100%;
+      height: var(--header-height);
+      padding-inline: var(--page-padding);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-direction: column;
+      border-bottom: 1px solid black;
+    }
+
+    .header__title,
+    .header__subtitle {
+      margin: 0;
+      padding: 0;
+      line-height: 1;
+    }
+
+    .navigation {
+      position: absolute;
+      top: calc(var(--header-height) - 2rem);
+      right: 2rem;
+      cursor: pointer;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .navigation__list {
+      /* display: none; */
+      position: absolute;
+      list-style: none;
+      margin: 0;
+      padding: 1rem .5rem;
+      border: 1px solid black;
+      border-radius: 5px;
+      background-color: white;
+    }
+
+    .navigation__list li {
+      margin: 0;
+      padding: .5rem;
+    }
+
+    .navigation__list li a {
+      text-decoration: none;
+      color: dodgerblue;
+    }
+
+    .navigation__list li a:hover {
+      color: blueviolet;
+    }
+
+    .navigation:hover .navigation__list {
+      display: block;
+    }
+
+
+
+    .page__main {
+      width: 100%;
+      height: calc(100vh - var(--header-height) - var(--footer-height));
+      overflow: auto;
+      padding-inline: var(--page-padding);
+    }
+
+
+
+    .page__footer {
+      width: 100%;
+      height: var(--footer-height);
+      border-top: 1px solid black;
+      padding-inline: var(--page-padding);
+
+    }
+
+    .footer__text {
+      margin: 0;
+      padding: 0;
+    }
+
+    .main__section {
+      width: 100%;
+    }
+
+    .section__headinggroup {
+      margin-block: 2rem;
+      padding-left: .5rem;
+      border-left: 2px solid dodgerblue;
+    }
+
+    .headinggroup__title {
+      margin: 0;
+      padding: 0;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .headinggroup__subtitle {
+      margin: 0;
+      padding: 0;
+      font-size: .9rem;
+    }
+
+    .shadowline {
+      border-top: 1px solid hsl(0, 0%, 86.7%);
+      height: 6px;
+      position: relative;
+      margin-block: 48px;
+      overflow: unset;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="page__header">
+    <h1 class="header__title">HTML5 Test Page</h1>
+    <p class="header__subtitle">This is a test page filled with common HTML elements to be used to provide visual feedback whilst building CSS systems and frameworks.</p>
+    <nav class="navigation">
+      TOC
+      <ul class="navigation__list">
+        <li><a href="#text">Text</a></li>
+        <li><a href="#lists">Lists</a></li>
+        <li><a href="#tables">Tables</a></li>
+        <li><a href="#forms">Forms</a></li>
+        <li><a href="#media">Media</a></li>
+        <li><a href="#misc">Misc</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="page__main">
+    <section id="text" class="main__section">
+      <hgroup class="section__headinggroup">
+        <h2 class="headinggroup__title">Text</h2>
+        <p class="headinggroup__subtitle">Headings, Paragraphs, Blockquote, Cite, Bold, Underline, Italic, Link, Image. </p>
+      </hgroup>
+
+      <h1>Archaeopteryx</h1>
+      <p>Archaeopteryx, sometimes referred to by its German name, "Urvogel" (lit. Primeval Bird), is a genus of bird-like dinosaurs. The name derives from the ancient Greek ἀρχαῖος (archaīos), meaning "ancient", and πτέρυξ (ptéryx), meaning "feather" or "wing". Between the late 19th century and the early 21st century, Archaeopteryx was generally accepted by palaeontologists and popular reference books as the oldest known bird (member of the group Avialae). Older potential avialans have since been identified,
+        including Anchiornis, Xiaotingia, and Aurornis.</p>
+
+
+      <figure>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Archaeopteryx_NT.jpg/440px-Archaeopteryx_NT.jpg" alt="Artist's restoration illustrating one interpretation of Carney's study">
+        <figcaption>
+          Artist's restoration illustrating one interpretation of Carney's study
+          <br>
+          <small> Image from <a href="https://wikipedia.org" target="_blank">wikipedia.org</a></small>
+        </figcaption>
+      </figure>
+
+
+
+
+      <p>Archaeopteryx lived in the Late Jurassic around 150 million years ago, in what is now southern Germany, during a time when Europe was an archipelago of islands in a shallow warm tropical sea, much closer to the equator than it is now. Similar in size to a Eurasian magpie, with the largest individuals possibly attaining the size of a raven, the largest species of Archaeopteryx could grow to about 0.5 m (1 ft 8 in) in length. Despite their small size, broad wings, and inferred ability to fly or glide
+        Archaeopteryx had more in common with other small Mesozoic dinosaurs than with modern birds. In particular, they shared the following features with the dromaeosaurids and troodontids: jaws with sharp teeth, three fingers with claws, a long bony tail, hyperextensible second toes ("killing claw"), feathers (which also suggest warm-bloodedness), and various features of the skeleton.</p>
+
+      <h2>History of discovery</h2>
+      <p>The initial discovery, a single feather, was unearthed in 1860 or 1861 and described in 1861 by Hermann von Meyer. It is currently located at the Natural History Museum of Berlin. Though it was the initial holotype, there were indications that it might not have been from the same animal as the body fossils. In 2019 it was reported that laser imaging had revealed the structure of the quill (which had not been visible since some time after the feather was described), and that the feather was inconsistent
+        with the morphology of all other Archaeopteryx feathers known, leading to the conclusion that it originated from another dinosaur. This conclusion was challenged in 2020 as being unlikely; the feather was identified on the basis of morphology as most likely having been an upper major primary covert feather.</p>
+
+      <h3>Authenticity</h3>
+      <p>Beginning in 1985, an amateur group including astronomer Fred Hoyle and physicist Lee Spetner, published a series of papers claiming that the feathers on the Berlin and London specimens of Archaeopteryx were forged. Their claims were repudiated by Alan J. Charig and others at the Natural History Museum in London. Most of their supposed evidence for a forgery was based on unfamiliarity with the processes of lithification; for example, they proposed that, based on the difference in texture associated with
+        the feathers, feather impressions were applied to a thin layer of cement, without realizing that feathers themselves would have caused a textural difference. They also misinterpreted the fossils, claiming that the tail was forged as one large feather, when visibly this is not the case. In addition, they claimed that the other specimens of Archaeopteryx known at the time did not have feathers, which is incorrect; the Maxberg and Eichstätt specimens have obvious feathers.</p>
+
+      <h4>Description</h4>
+      <p>Most of the specimens of Archaeopteryx that have been discovered come from the Solnhofen limestone in Bavaria, southern Germany, which is a Lagerstätte, a rare and remarkable geological formation known for its superbly detailed fossils laid down during the early Tithonian stage of the Jurassic period, approximately 150.8–148.5 million years ago.</p>
+
+      <h5>Colouration</h5>
+      <p>In 2011, graduate student Ryan Carney and colleagues performed the first colour study on an Archaeopteryx specimen. Using scanning electron microscopy technology and energy-dispersive X-ray analysis, the team was able to detect the structure of melanosomes in the isolated feather specimen described in 1861. The resultant measurements were then compared to those of 87 modern bird species, and the original colour was calculated with a 95% likelihood to be black. The feather was determined to be black
+        throughout, with heavier pigmentation in the distal tip. The feather studied was most probably a dorsal covert, which would have partly covered the primary feathers on the wings.</p>
+
+
+      <h6>Phylogenetic position</h6>
+      <p>Modern palaeontology has often classified Archaeopteryx as the most primitive bird. However, it is not thought to be a true ancestor of modern birds, but rather a close relative of that ancestor. Nonetheless, Archaeopteryx was often used as a model of the true ancestral bird. Several authors have done so. Lowe (1935) and Thulborn (1984) questioned whether Archaeopteryx truly was the first bird. They suggested that Archaeopteryx was a dinosaur that was no more closely related to birds than were other
+        dinosaur groups. Kurzanov (1987) suggested that Avimimus was more likely to be the ancestor of all birds than Archaeopteryx. Barsbold (1983) and Zweers and Van den Berge (1997) noted that many maniraptoran lineages are extremely birdlike, and they suggested that different groups of birds may have descended from different dinosaur ancestors.</p>
+
+      <div class="shadowline"></div>
+      <h2>Blockquotes</h2>
+      <blockquote>
+        <p>A block quotation (also known as a long quotation or extract) is a quotation in a written document, that is set off from the main text as a paragraph, or block of text.</p>
+        <p>It is typically distinguished visually using indentation and a different typeface or smaller size quotation. It may or may not include a citation, usually placed at the bottom.</p>
+        <cite><a href="#!">Said no one, ever.</a></cite>
+      </blockquote>
+
+      <h2>Lists</h2>
+
+      <h3>Definition list</h3>
+      <dl>
+        <dt>Definition List Title</dt>
+        <dd>This is a definition list division.</dd>
+      </dl>
+      <h3>Ordered List</h3>
+      <ol type="1">
+        <li>List Item 1</li>
+        <li>
+          List Item 2
+          <ol type="A">
+            <li>List Item 1</li>
+            <li>
+              List Item 2
+              <ol type="a">
+                <li>List Item 1</li>
+                <li>
+                  List Item 2
+                  <ol type="I">
+                    <li>List Item 1</li>
+                    <li>
+                      List Item 2
+                      <ol type="i">
+                        <li>List Item 1</li>
+                        <li>List Item 2</li>
+                        <li>List Item 3</li>
+                      </ol>
+                    </li>
+                    <li>List Item 3</li>
+                  </ol>
+                </li>
+                <li>List Item 3</li>
+              </ol>
+            </li>
+            <li>List Item 3</li>
+          </ol>
+        </li>
+        <li>List Item 3</li>
+      </ol>
+      <h3>Unordered List</h3>
+      <ul>
+        <li>List Item 1</li>
+        <li>
+          List Item 2
+          <ul>
+            <li>List Item 1</li>
+            <li>
+              List Item 2
+              <ul>
+                <li>List Item 1</li>
+                <li>
+                  List Item 2
+                  <ul>
+                    <li>List Item 1</li>
+                    <li>
+                      List Item 2
+                      <ul>
+                        <li>List Item 1</li>
+                        <li>List Item 2</li>
+                        <li>List Item 3</li>
+                      </ul>
+                    </li>
+                    <li>List Item 3</li>
+                  </ul>
+                </li>
+                <li>List Item 3</li>
+              </ul>
+            </li>
+            <li>List Item 3</li>
+          </ul>
+        </li>
+        <li>List Item 3</li>
+      </ul>
+      </div>
+      <footer>
+        <p><a href="#top">[Top]</a></p>
+      </footer>
+      </article>
+      <article id="text__blockquotes">
+        <header>
+          <h1>Blockquotes</h1>
+        </header>
+        <div>
+          <blockquote>
+            <p>A block quotation (also known as a long quotation or extract) is a quotation in a written document, that is set off from the main text as a paragraph, or block of text.</p>
+            <p>It is typically distinguished visually using indentation and a different typeface or smaller size quotation. It may or may not include a citation, usually placed at the bottom.</p>
+            <cite><a href="#!">Said no one, ever.</a></cite>
+          </blockquote>
+        </div>
+        <footer>
+          <p><a href="#top">[Top]</a></p>
+        </footer>
+      </article>
+      <article id="text__details">
+        <header>
+          <h1>Details / Summary</h1>
+        </header>
+        <details>
+          <summary>Expand for details</summary>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, odio! Odio natus ullam ad quaerat, eaque necessitatibus, aliquid distinctio similique voluptatibus dicta consequuntur animi. Quaerat facilis quidem unde eos! Ipsa.</p>
+        </details>
+        <footer>
+          <p><a href="#top">[Top]</a></p>
+        </footer>
+      </article>
+      <article id="text__address">
+        <header>
+          <h1>Address</h1>
+        </header>
+        <address>
+          Written by <a href="mailto:webmaster@example.com">Jon Doe</a>.<br>
+          Visit us at:<br>
+          Example.com<br>
+          Box 564, Disneyland<br>
+          USA
+        </address>
+        <footer>
+          <p><a href="#top">[Top]</a></p>
+        </footer>
+      </article>
+      <article id="text__hr">
+        <header>
+          <h2>Horizontal rules</h2>
+        </header>
+        <div>
+          <hr>
+        </div>
+        <footer>
+          <p><a href="#top">[Top]</a></p>
+        </footer>
+      </article>
+      <article id="text__tables">
+        <header>
+          <h2>Tabular data</h2>
+        </header>
+        <table>
+          <caption>Table Caption</caption>
+          <thead>
+            <tr>
+              <th>Table Heading 1</th>
+              <th>Table Heading 2</th>
+              <th>Table Heading 3</th>
+              <th>Table Heading 4</th>
+              <th>Table Heading 5</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <th>Table Footer 1</th>
+              <th>Table Footer 2</th>
+              <th>Table Footer 3</th>
+              <th>Table Footer 4</th>
+              <th>Table Footer 5</th>
+            </tr>
+          </tfoot>
+          <tbody>
+            <tr>
+              <td>Table Cell 1</td>
+              <td>Table Cell 2</td>
+              <td>Table Cell 3</td>
+              <td>Table Cell 4</td>
+              <td>Table Cell 5</td>
+            </tr>
+            <tr>
+              <td>Table Cell 1</td>
+              <td>Table Cell 2</td>
+              <td>Table Cell 3</td>
+              <td>Table Cell 4</td>
+              <td>Table Cell 5</td>
+            </tr>
+            <tr>
+              <td>Table Cell 1</td>
+              <td>Table Cell 2</td>
+              <td>Table Cell 3</td>
+              <td>Table Cell 4</td>
+              <td>Table Cell 5</td>
+            </tr>
+            <tr>
+              <td>Table Cell 1</td>
+              <td>Table Cell 2</td>
+              <td>Table Cell 3</td>
+              <td>Table Cell 4</td>
+              <td>Table Cell 5</td>
+            </tr>
+          </tbody>
+        </table>
+        <footer>
+          <p><a href="#top">[Top]</a></p>
+        </footer>
+      </article>
+      <article id="text__code">
+        <header>
+          <h2>Code</h2>
+        </header>
+        <div>
+          <p><strong>Keyboard input:</strong> <kbd>Cmd</kbd></p>
+          <p><strong>Inline code:</strong> <code>&lt;div&gt;code&lt;/div&gt;</code></p>
+          <p><strong>Sample output:</strong> <samp>This is sample output from a computer program.</samp></p>
+          <h2>Pre-formatted text</h2>
+          <pre>P R E F O R M A T T E D T E X T
+            ! " # $ % &amp; ' ( ) * + , - . /
+            0 1 2 3 4 5 6 7 8 9 : ; &lt; = &gt; ?
+            @ A B C D E F G H I J K L M N O
+            P Q R S T U V W X Y Z [ \ ] ^ _
+            ` a b c d e f g h i j k l m n o
+            p q r s t u v w x y z { | } ~ </pre>
+        </div>
+        <footer>
+          <p><a href="#top">[Top]</a></p>
+        </footer>
+      </article>
+      <article id="text__inline">
+        <header>
+          <h2>Inline elements</h2>
+        </header>
+        <div>
+          <p><a href="#!">This is a text link</a>.</p>
+          <p><strong>Strong is used to indicate strong importance.</strong></p>
+          <p><em>This text has added emphasis.</em></p>
+          <p>The <b>b element</b> is stylistically different text from normal text, without any special importance.</p>
+          <p>The <i>i element</i> is text that is offset from the normal text.</p>
+          <p>The <u>u element</u> is text with an unarticulated, though explicitly rendered, non-textual annotation.</p>
+          <p><del>This text is deleted</del> and <ins>This text is inserted</ins>.</p>
+          <p><s>This text has a strikethrough</s>.</p>
+          <p>Superscript<sup>®</sup>.</p>
+          <p>Subscript for things like H<sub>2</sub>O.</p>
+          <p><small>This small text is small for fine print, etc.</small></p>
+          <p>Abbreviation: <abbr title="HyperText Markup Language">HTML</abbr></p>
+          <p><q cite="https://developer.mozilla.org/en-US/docs/HTML/Element/q">This text is a short inline quotation.</q></p>
+          <p><cite>This is a citation.</cite></p>
+          <p>The <dfn>dfn element</dfn> indicates a definition.</p>
+          <p>The <mark>mark element</mark> indicates a highlight.</p>
+          <p>The <var>variable element</var>, such as <var>x</var> = <var>y</var>.</p>
+          <p>The time element: <time datetime="2013-04-06T12:32+00:00">2 weeks ago</time></p>
+        </div>
+        <footer>
+          <p><a href="#top">[Top]</a></p>
+        </footer>
+      </article>
+      <article id="text__comments">
+        <header>
+          <h2>HTML Comments</h2>
+        </header>
+        <div>
+          <p>There is comment here: <!--This comment should not be displayed--></p>
+          <p>There is a comment spanning multiple tags and lines below here.</p>
+          <!--<p><a href="#!">This is a text link. But it should not be displayed in a comment</a>.</p>
+              <p><strong>Strong is used to indicate strong importance. But, it should not be displayed in a comment</strong></p>
+              <p><em>This text has added emphasis. But, it should not be displayed in a comment</em></p>-->
+        </div>
+        <footer>
+          <p><a href="#top">[Top]</a></p>
+        </footer>
+      </article>
+    </section>
+    <section id="embedded">
+      <header>
+        <h2>Embedded content</h2>
+      </header>
+      <article id="embedded__images">
+        <header>
+          <h2>Images</h2>
+        </header>
+        <div>
+          <h3>Plain <code>&lt;img&gt;</code> element</h3>
+          <p><img src="https://placekitten.com/480/480" alt="Photo of a kitten"></p>
+          <h3><code>&lt;figure&gt;</code> element with <code>&lt;img&gt;</code> element</h3>
+          <figure><img src="https://placekitten.com/420/420" alt="Photo of a kitten"></figure>
+          <h3><code>&lt;figure&gt;</code> element with <code>&lt;img&gt;</code> and <code>&lt;figcaption&gt;</code> elements</h3>
+          <figure>
+            <img src="https://placekitten.com/420/420" alt="Photo of a kitten">
+            <figcaption>Here is a caption for this image.</figcaption>
+          </figure>
+          <h3><code>&lt;figure&gt;</code> element with a <code>&lt;picture&gt;</code> element</h3>
+          <figure>
+            <picture>
+              <source srcset="https://placekitten.com/800/800" media="(min-width: 800px)">
+              <img src="https://placekitten.com/420/420" alt="Photo of a kitten" />
+            </picture>
+          </figure>
+        </div>
+        <footer>
+          <p><a href="#top">[Top]</a></p>
+        </footer>
+      </article>
+      <article id="embedded__bgimages">
+        <header>
+          <h2>Background images</h2>
+        </header>
+        <div style="background-image:url('https://placekitten.com/300/300'); width:300px; height: 300px;"></div>
+        <footer>
+          <p><a href="#top">[Top]</a></p>
+        </footer>
+      </article>
+      <article id="embedded__audio">
+        <header>
+          <h2>Audio</h2>
+        </header>
+        <div><audio controls="">audio</audio></div>
+        <footer>
+          <p><a href="#top">[Top]</a></p>
+        </footer>
+      </article>
+      <article id="embedded__video">
+        <header>
+          <h2>Video</h2>
+        </header>
+        <div><video controls="">video</video></div>
+        <footer>
+          <p><a href="#top">[Top]</a></p>
+        </footer>
+      </article>
+      <article id="embedded__canvas">
+        <header>
+          <h2>Canvas</h2>
+        </header>
+        <div><canvas>canvas</canvas></div>
+        <footer>
+          <p><a href="#top">[Top]</a></p>
+        </footer>
+      </article>
+      <article id="embedded__meter">
+        <header>
+          <h2>Meter</h2>
+        </header>
+        <div><meter value="2" min="0" max="10">2 out of 10</meter></div>
+        <footer>
+          <p><a href="#top">[Top]</a></p>
+        </footer>
+      </article>
+      <article id="embedded__progress">
+        <header>
+          <h2>Progress</h2>
+        </header>
+        <div><progress>progress</progress></div>
+        <footer>
+          <p><a href="#top">[Top]</a></p>
+        </footer>
+      </article>
+      <article id="embedded__svg">
+        <header>
+          <h2>Inline SVG</h2>
+        </header>
+        <div><svg width="100px" height="100px">
+            <circle cx="100" cy="100" r="100" fill="#1fa3ec"></circle>
+          </svg></div>
+        <footer>
+          <p><a href="#top">[Top]</a></p>
+        </footer>
+      </article>
+      <!-- <article id="embedded__iframe">
+          <header>
+            <h2>IFrame</h2>
+          </header>
+          <div><iframe src="index.html" height="300"></iframe></div>
+          <footer>
+            <p><a href="#top">[Top]</a></p>
+          </footer>
+        </article>
+        <article id="embedded__embed">
+          <header>
+            <h2>Embed</h2>
+          </header>
+          <div><embed src="index.html" height="300"></div>
+          <footer>
+            <p><a href="#top">[Top]</a></p>
+          </footer>
+        </article>
+        <article id="embedded__object">
+          <header>
+            <h2>Object</h2>
+          </header>
+          <div><object data="index.html" height="300"></object></div>
+          <footer>
+            <p><a href="#top">[Top]</a></p>
+          </footer>
+        </article> -->
+    </section>
+    <section id="forms">
+      <header>
+        <h2>Form elements</h2>
+      </header>
+      <form>
+        <fieldset id="forms__input">
+          <legend>Input fields</legend>
+          <p>
+            <label for="input__text">Text Input</label>
+            <input id="input__text" type="text" placeholder="Text Input">
+          </p>
+          <p>
+            <label for="input__password">Password</label>
+            <input id="input__password" type="password" placeholder="Type your Password">
+          </p>
+          <p>
+            <label for="input__webaddress">Web Address</label>
+            <input id="input__webaddress" type="url" placeholder="https://yoursite.com">
+          </p>
+          <p>
+            <label for="input__emailaddress">Email Address</label>
+            <input id="input__emailaddress" type="email" placeholder="name@email.com">
+          </p>
+          <p>
+            <label for="input__phone">Phone Number</label>
+            <input id="input__phone" type="tel" placeholder="(999) 999-9999">
+          </p>
+          <p>
+            <label for="input__search">Search</label>
+            <input id="input__search" type="search" placeholder="Enter Search Term">
+          </p>
+          <p>
+            <label for="input__text2">Number Input</label>
+            <input id="input__text2" type="number" placeholder="Enter a Number">
+          </p>
+          <p>
+            <label for="input__file">File Input</label>
+            <input id="input__file" type="file">
+          </p>
+        </fieldset>
+        <p><a href="#top">[Top]</a></p>
+        <fieldset id="forms__select">
+          <legend>Select menus</legend>
+          <p>
+            <label for="select">Select</label>
+            <select id="select">
+              <optgroup label="Option Group">
+                <option>Option One</option>
+                <option>Option Two</option>
+                <option>Option Three</option>
+              </optgroup>
+            </select>
+          </p>
+          <p>
+            <label for="select_multiple">Select (multiple)</label>
+            <select id="select_multiple" multiple="multiple">
+              <optgroup label="Option Group">
+                <option>Option One</option>
+                <option>Option Two</option>
+                <option>Option Three</option>
+              </optgroup>
+            </select>
+          </p>
+        </fieldset>
+        <p><a href="#top">[Top]</a></p>
+        <fieldset id="forms__checkbox">
+          <legend>Checkboxes</legend>
+          <ul>
+            <li><label for="checkbox1"><input id="checkbox1" name="checkbox" type="checkbox" checked="checked"> Choice A</label></li>
+            <li><label for="checkbox2"><input id="checkbox2" name="checkbox" type="checkbox"> Choice B</label></li>
+            <li><label for="checkbox3"><input id="checkbox3" name="checkbox" type="checkbox"> Choice C</label></li>
+          </ul>
+        </fieldset>
+        <p><a href="#top">[Top]</a></p>
+        <fieldset id="forms__radio">
+          <legend>Radio buttons</legend>
+          <ul>
+            <li><label for="radio1"><input id="radio1" name="radio" type="radio" checked="checked"> Option 1</label></li>
+            <li><label for="radio2"><input id="radio2" name="radio" type="radio"> Option 2</label></li>
+            <li><label for="radio3"><input id="radio3" name="radio" type="radio"> Option 3</label></li>
+          </ul>
+        </fieldset>
+        <p><a href="#top">[Top]</a></p>
+        <fieldset id="forms__textareas">
+          <legend>Textareas</legend>
+          <p>
+            <label for="textarea">Textarea</label>
+            <textarea id="textarea" rows="8" cols="48" placeholder="Enter your message here"></textarea>
+          </p>
+        </fieldset>
+        <p><a href="#top">[Top]</a></p>
+        <fieldset id="forms__html5">
+          <legend>HTML5 inputs</legend>
+          <p>
+            <label for="ic">Color input</label>
+            <input type="color" id="ic" value="#000000">
+          </p>
+          <p>
+            <label for="in">Number input</label>
+            <input type="number" id="in" min="0" max="10" value="5">
+          </p>
+          <p>
+            <label for="ir">Range input</label>
+            <input type="range" id="ir" value="10">
+          </p>
+          <p>
+            <label for="idd">Date input</label>
+            <input type="date" id="idd" value="1970-01-01">
+          </p>
+          <p>
+            <label for="idm">Month input</label>
+            <input type="month" id="idm" value="1970-01">
+          </p>
+          <p>
+            <label for="idw">Week input</label>
+            <input type="week" id="idw" value="1970-W01">
+          </p>
+          <p>
+            <label for="idt">Datetime input</label>
+            <input type="datetime" id="idt" value="1970-01-01T00:00:00Z">
+          </p>
+          <p>
+            <label for="idtl">Datetime-local input</label>
+            <input type="datetime-local" id="idtl" value="1970-01-01T00:00">
+          </p>
+          <p>
+            <label for="idl">Datalist</label>
+            <input type="text" id="idl" list="example-list">
+            <datalist id="example-list">
+              <option value="Example #1" />
+              <option value="Example #2" />
+              <option value="Example #3" />
+            </datalist>
+          </p>
+        </fieldset>
+        <p><a href="#top">[Top]</a></p>
+        <fieldset id="forms__action">
+          <legend>Action buttons</legend>
+          <p>
+            <input type="submit" value="<input type=submit>">
+            <input type="button" value="<input type=button>">
+            <input type="reset" value="<input type=reset>">
+            <input type="submit" value="<input disabled>" disabled>
+          </p>
+          <p>
+            <button type="submit">&lt;button type=submit&gt;</button>
+            <button type="button">&lt;button type=button&gt;</button>
+            <button type="reset">&lt;button type=reset&gt;</button>
+            <button type="button" disabled>&lt;button disabled&gt;</button>
+          </p>
+        </fieldset>
+        <p><a href="#top">[Top]</a></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="page__footer">
+    <p class="footer__text">Made by <a href="http://twitter.com/cbracco">@cbracco</a>. Code on <a href="http://github.com/cbracco/html5-test-page">GitHub</a>.</p>
+  </footer>
+</body>
+
+</html>

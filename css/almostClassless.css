@@ -1,0 +1,180 @@
+@charset "UTF-8";
+
+/************************************************************/
+/*                   AlmostClassless.css                    */
+/************************************************************/
+/** Author:  Kolja                                         **/
+/** Project: https://github.com/KoljaL/AlmostClassless     **/
+/************************************************************/
+
+/* @media (prefers-color-scheme: light) {} */
+:root,
+:root[data-theme='light'] {
+    /* Colors */
+    --primaryH: 210;
+    --primaryHI: 210deg;
+    --primaryS: 50%;
+    --primaryL: 40%;
+    --primary-bg: hsl(0, 0%, 100%);
+    --secondaryH: 0;
+    --secondaryS: 0%;
+    --secondaryL: 13%;
+    --secondary-bg: hsl(0, 0%, 100%);
+    /* Status */
+    --error: #d00;
+    --warning: #ec0;
+    --info: #369;
+    --correct: #080;
+    /* Colors */
+    --bs-blue: #0d6efd;
+    --bs-indigo: #6610f2;
+    --bs-purple: #6f42c1;
+    --bs-pink: #d63384;
+    --bs-red: #dc3545;
+    --bs-orange: #fd7e14;
+    --bs-yellow: #ffc107;
+    --bs-green: #198754;
+    --bs-teal: #20c997;
+    --bs-cyan: #0dcaf0;
+    --bs-black: #000;
+    --bs-white: #fff;
+    --bs-gray: #6c757d;
+}
+
+:root[data-theme='dark'] {
+    /* Colors */
+    --primaryH: 210;
+    --primaryHI: 210deg;
+    --primaryS: 50%;
+    --primaryL: 40%;
+    --primary-bg: hsl(213, 16%, 24%);
+    --secondaryH: 0;
+    --secondaryS: 0%;
+    --secondaryL: 70%;
+    --secondary-bg: hsl(215, 18%, 13%);
+    /* Status */
+    --error: #d00;
+    --warning: #ec0;
+    --info: #369;
+    --correct: #080;
+    /* Colors */
+    --bs-blue: #0d6efd;
+    --bs-indigo: #6610f2;
+    --bs-purple: #6f42c1;
+    --bs-pink: #d63384;
+    --bs-red: #dc3545;
+    --bs-orange: #fd7e14;
+    --bs-yellow: #ffc107;
+    --bs-green: #198754;
+    --bs-teal: #20c997;
+    --bs-cyan: #0dcaf0;
+    --bs-black: #000;
+    --bs-white: #fff;
+    --bs-gray: #6c757d;
+}
+
+:root {
+    /* Font */
+    --font-family-text: 'Overpass-Light', Arial, sans-serif;
+    --font-family-headline: 'Overpass-Regular', Arial, sans-serif;
+    --font-size-root: 16px;
+    --font-weight-bolder: 700;
+    --font-weight-bold: 400;
+    --font-weight-normal: 200;
+    --font-weight-thin: 100;
+    --font-size-link: var(--font-size-root);
+    --line-height: 1.5;
+    --heading-margin: 1.5rem 0 1rem;
+    /* Inputs */
+    --border-radius: 2px;
+    /* Calculated colors */
+    --primary: hsl(var(--primaryH), var(--primaryS), var(--primaryL));
+    --primary-bright: hsl(var(--primaryH), calc(var(--primaryS) * 1.25), 90%);
+    --primary-transparent: hsla(var(--primaryH), var(--primaryS), var(--primaryL), 0.05);
+    --primary-dark: hsl(var(--primaryH), var(--primaryS), calc(var(--primaryL) * 0.75));
+    --primary-darker: hsl(var(--primaryH), var(--primaryS), calc(var(--primaryL) * 0.5));
+    --primary-light: hsl(var(--primaryH), var(--primaryS), calc(var(--primaryL) * 1.25));
+    --primary-lighter: hsl(var(--primaryH), var(--primaryS), calc(var(--primaryL) * 1.5));
+    --secondary: hsl(var(--secondaryH), var(--secondaryS), var(--secondaryL));
+    --secondary-transparent: hsl(var(--secondaryH), var(--secondaryS), var(--secondaryL), 0.05);
+    --secondary-dark: hsl(var(--secondaryH), var(--secondaryS), calc(var(--secondaryL) * 0.75));
+    --secondary-darker: hsl(var(--secondaryH), var(--secondaryS), calc(var(--secondaryL) * 0.5));
+    --secondary-light: hsl(var(--secondaryH), var(--secondaryS), calc(var(--secondaryL) * 1.25));
+    --secondary-lighter: hsl(var(--secondaryH), var(--secondaryS), calc(var(--secondaryL) * 1.5));
+    /*pico or pure css*/
+    --border-radius: 0.25rem;
+    --border-width: 1px;
+    --outline-width: 3px;
+    --spacing: 1rem;
+    --typography-spacing-vertical: 1.5rem;
+    --block-spacing-vertical: calc(var(--spacing) * 2);
+    --block-spacing-horizontal: var(--spacing);
+    --form-element-spacing-vertical: 0.75rem;
+    --form-element-spacing-horizontal: 1rem;
+    --nav-element-spacing-vertical: 1rem;
+    --nav-element-spacing-horizontal: 0.5rem;
+    --nav-link-spacing-vertical: 0.5rem;
+    --nav-link-spacing-horizontal: 0.5rem;
+    --form-label-font-weight: var(--font-weight);
+    --transition: 0.2s ease-in-out;
+    --modal-overlay-backdrop-filter: blur(0.25rem);
+}
+
+@font-face {
+    font-family: Overpass-Light;
+    src: url('../font/Overpass-Light.woff2') format('woff2');
+    /* src: url('../font/Overpass-Thin.woff2') format('woff2'); */
+}
+
+@font-face {
+    font-family: Overpass-Regular;
+    src: url('../font/Overpass-Medium.woff2') format('woff2');
+    /* src: url('../font/Overpass-Regular.woff2') format('woff2'); */
+}
+
+/*
+ * for ALL ELEMENTS
+ */
+* {
+    box-sizing: border-box;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+/*
+ * HTML & BODY
+ */
+
+html {
+    font-size: var(--font-size-root);
+    line-height: var(--line-height);
+    font-family: var(--font-family-text);
+    font-weight: var(--font-weight);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background-color: #fff;
+    color: #000;
+}
+
+/*
+ * HEADINGS
+ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-family-headline);
+    font-weight: var(--font-weight);
+    line-height: var(--line-height);
+    margin: 0;
+}
