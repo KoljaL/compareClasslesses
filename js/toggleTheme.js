@@ -47,7 +47,7 @@ STYLE.innerHTML = /*CSS*/ `
   cursor: pointer;
   width: 32px;
   height: 32px;
-  margin-bottom: 10px;
+  // margin-bottom: 10px;
 }
 
 .theme-toggle input[type="checkbox"] {
@@ -68,13 +68,14 @@ STYLE.innerHTML = /*CSS*/ `
 
 #sunmoon {
   cursor: pointer;
-  fill:var(--page-color);
-  stroke:var(--page-color);
-  transition: filter 0.3s ease;
+  fill:var(--color-link-light);
+  stroke:var(--color-link-light);
+  transition: all 0.3s ease;
 }
 
 #sunmoon:hover {
-  filter: brightness(1.2);
+  fill:var(--color-link);
+  stroke:var(--color-link);
 }
  
 `;

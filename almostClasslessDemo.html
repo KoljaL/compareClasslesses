@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HTML5 Test Page</title>
+  <title>HTML Test Page</title>
   <link rel="shortcut icon"
     href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAAXNSR0IB2cksfwAAAAlwSFlzAAAN1wAADdcBQiibeAAAAbZQTFRFAAAA/1ci/1ci/1ci/1ci/1ci/1ci/1ci/2At/2Ew/18s/1ci/2Ix/2Ix/1ci/2Mx/2Mx/1ci/2Au/2At/1ci/1ci/2Ev/2Iw/18t/1sn/1ci/1ci/2Au/1sn/1ci/1ci/1ci/10p/1on/1ci/1ci/14r/1wp/1ci/1ci/1wo/Z+B/Z+B/1om/1ci/1ci/1om/NHE/NHE/1kl/1ci/1ci/oNc/oNd/1ci/1ci/10q/1om/2Ev/2o8/1ci/1ci/2k6/2g4/1ci/1ci/2My/3FE/21A/mw9/2Au/1ci/1ci/2Ev/pBu/pBu/2Ew/1ci/1ci/10p++DX/1ol/1sn/1ci/1ci/1so/2U1/2Au/10q/1gk/10q/2Au/2g4/1wo/1ci/1ci/1ci/1wo/3lP/nlP/1ci/1ci/1sn/Zx9/Zt7/1ci/1ci/1kl/1wp/2Ev/nlQ/nRI/2Eu/1wo/1ci/1ci/1gj/1sn/14r/2Uz/2U0/10q/1on/1ci/1ci/1ci/1ci/1ci/1ci/1ci/1ci/1ci/1ci/1ci/1ci/1ci/1ci/1ci/1ci/1ci/1ci/1ci/1ci/1ci/1cirY2PbQAAAJJ0Uk5TAPD/1bqfhGnw7PJWPFtEUHgyYpIxIHqqs+MfDpbmDQH6r9P36M3D3NbmCQ3wwcT+BQT+prIfH4ugnoYiOHCINVVabY4zWSFuSFKLGRGLNjehAfv6JByzPH7Q/8h1NrQSBPzGExMC5dwEBOTK9LlyHid7v8mv/9mgVlim366TeP37UUmR3SNktfn2rF4LQNB7OwipoSOCAAABhklEQVR4nHWSZVsCURBGB0EMFLsV7O7uLkywxUAxMLA7wG5F/cfO3L2ssLDzZc773vMsdwEAUATIjgJolPKCkgkqeUHFhEB5IZAJanlBzYQgwuAQyYRSG8QEDWEYSCacWg1DLWGEVIikVsswijBaKsRQG8swjjAeISHRY5KoTWZCCmEqQprPW+iYoE9HzEDIlJ5n6YWPy0bOwZ0rFfL4ffKRC3AXFnlMMZYlXChFLiv3fomKSiyreKimx9V4C7XU1fFQT6Gh8X+aAJqpa+FCq/RybQDttDu40Emhq7u7xy30AvTR7ueCgcIAwKBbGAIYpj3ChVEKRgDTmHA+bgIwEkxwYZLCFML0zKzZPDe/gLhInYULS8sYrAKvrArbitXymvul1zHZNjy/hk0bVlti3Kbn2Xd294S4f3Bop+ZIFI757U9Oz84vLq9OeLwWBYfPH4GNQxSc/gWnKBhu/J3f3v1f2nL/8Oh9+tiq1Xn/vvqn55dX4fDt/eNJD/7m80vtcn3//Hp2f4KVOgqbZCheAAAAAElFTkSuQmCC"
     type="image/x-icon">
@@ -31,7 +31,7 @@
     :root {
       --page-width: 80rem;
       --header-height: 4rem;
-      --footer-height: 1rem;
+      --footer-height: 2rem;
       --page-padding: 1rem;
       --page-margin: 1rem;
       --page-color: hsl(264, 78%, 59%);
@@ -59,6 +59,9 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      transition: all var(--transition-color);
+      background-color: var(--color-background-darkest);
+
     }
 
     .page__header {
@@ -70,8 +73,12 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid black;
+      border-bottom: 1px solid var(--color-link-transparent);
+      background-color: var(--color-background-dark);
+      transition: all var(--transition-color);
     }
+
+    /* TODO check why .page__header::after {content: "";clear: both;display: block;} */
 
     .header__title,
     .header__subtitle {
@@ -81,13 +88,27 @@
     }
 
     .header__title {
-      color: var(--page-color);
+      color: var(--color-link-light);
+      transition: all var(--transition-color);
     }
 
     .header__subtitle {
-      /* filter: brightness(var(--page-brightness));
-      transition: all var(--transition-color); */
+      color: var(--color-text-darkest);
+      transition: all var(--transition-color);
     }
+
+    @media screen and (max-width: 1200px) {
+      :root {
+        --header-height: 3rem;
+      }
+
+      .header__subtitle {
+        display: none;
+      }
+
+
+    }
+
 
     .header__right {
       display: flex;
@@ -95,65 +116,156 @@
       justify-content: space-between;
       align-items: center;
       gap: 1rem;
-      position: relative;
-      top: 1rem;
+    }
+
+    .header__right>* {
+      height: 32px;
+      width: 32px;
+    }
+
+    .toc--navigation {
+      position: absolute;
+      top: 100%;
+      right: 0%;
+      min-width: 160px;
+      margin: 0;
+      padding: 0;
+      background-color: var(--color-background-light);
+      border: 1px solid var(--color-text-transparent);
+      border-radius: var(--radius-medium);
+      box-shadow: var(--shadow);
+      transition: clip-path ease-in-out 700ms;
+      list-style: none;
+    }
+
+    .toc--navigation[data-state="opened"] {
+      animation: clipPathCircleOpen 750ms ease-in-out forwards;
+      display: block;
+    }
+
+    .toc--navigation[data-state="closing"] {
+      animation: clipPathCircleClose 750ms ease-in-out forwards;
+    }
+
+    .toc--navigation[data-state="closed"] {
+      display: none;
+    }
+
+    @keyframes clipPathCircleOpen {
+      0% {
+        clip-path: circle(0% at top right);
+      }
+
+      100% {
+        clip-path: circle(250% at top right);
+      }
+    }
+
+    @keyframes clipPathCircleClose {
+      0% {
+        clip-path: circle(250% at top right);
+      }
+
+      100% {
+        clip-path: circle(0% at top right);
+      }
     }
 
 
-    .navigation {
-      position: relative;
-      display: inline-block;
-    }
 
-    .navigation_button {
-      display: inline-block;
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: var(--page-color);
-      border: none;
-      background-color: transparent;
+    .toc--toggle-button {
+      padding-bottom: 1.4em;
+      background: transparent;
+      border: 0;
+      /* position: absolute;
+      top: 0.5em;
+      right: 0.5em; */
       cursor: pointer;
     }
 
-    .navigation__content {
-      display: none;
-      position: absolute;
-      background-color: #f1f1f1;
-      min-width: 160px;
-      box-shadow: var(--shadow);
-      z-index: 1;
-      margin: 0;
-      padding: 0;
-      border: 1px solid var(--page-color);
-      border-radius: 5px;
+    .hamburger,
+    .hamburger::before,
+    .hamburger::after {
+      content: "";
+      display: block;
+      background: var(--color-link-light);
+      height: 3px;
+      width: 1.75em;
+      border-radius: 3px;
+      transition: all ease-in-out 500ms;
     }
 
-    .navigation__content a {
-      color: black;
+    .toc--toggle-button:hover .hamburger,
+    .toc--toggle-button:hover .hamburger::before,
+    .toc--toggle-button:hover .hamburger::after {
+      background: var(--color-link);
+    }
+
+    .hamburger::before {
+      transform: translateY(-6px);
+    }
+
+    .hamburger::after {
+      transform: translateY(3px);
+    }
+
+    [aria-expanded="true"] .hamburger {
+      transform: rotate(45deg);
+    }
+
+    [aria-expanded="true"] .hamburger::before {
+      opacity: 0;
+    }
+
+    [aria-expanded="true"] .hamburger::after {
+      transform: translateY(-3px) rotate(-90deg);
+    }
+
+    .visually-hidden {
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      height: 1px;
+      overflow: hidden;
+      position: absolute;
+      white-space: nowrap;
+      width: 1px;
+    }
+
+    .page--toc a {
+      color: var(--color-link);
       padding: 12px 16px;
       text-decoration: none;
       display: block;
+      font-size: 1.2rem;
+      line-height: 1.3;
+      transition: all var(--transition-color);
+      font-weight: bold;
     }
 
-    .navigation__content a:hover {
-      background-color: #ddd;
+    .page--toc a:hover,
+    .page--toc a:focus {
+      font-size: 1.3rem;
+      line-height: 1.2;
+      color: var(--color-link-light);
     }
 
-    .navigation:hover .navigation__content {
-      display: block;
+    .page--toc--icon {
+      display: inline-block;
+      font-size: 1.5em;
+      margin-right: 1em;
+      width: 1.1em;
+      text-align: right;
+      color: rgba(255, 255, 255, 0.4);
     }
-
-    .navigation:hover .navigation_button {
-      color: #3e8e41;
-
-    }
-
 
     .page__main {
       width: 100%;
       height: calc(100vh - var(--header-height) - var(--footer-height));
       overflow: auto;
       padding-inline: var(--page-padding);
+      background-color: var(--color-background);
+      transition: all var(--transition-color);
+
     }
 
 
@@ -161,12 +273,17 @@
     .page__footer {
       width: 100%;
       height: var(--footer-height);
-      border-top: 1px solid var(--page-color);
+      border-top: 1px solid var(--color-link-transparent);
       padding-inline: var(--page-padding);
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      background-color: var(--color-background-dark);
+      transition: all var(--transition-color);
 
     }
 
-    .footer__ {
+    .footer__text {
       margin: 0;
       padding: 0;
     }
@@ -178,7 +295,7 @@
     .section__headinggroup {
       margin-block: 2rem;
       padding-left: .5rem;
-      border-left: 2px solid var(--page-color);
+      border-left: 2px solid var(--color-link-light);
     }
 
     .headinggroup__title {
@@ -186,24 +303,26 @@
       padding: 0;
       font-size: 2rem;
       font-weight: bold;
-      color: var(--page-color);
+      color: var(--color-link-light);
       line-height: 1;
+      transition: all var(--transition-color);
+
     }
 
     .headinggroup__subtitle {
       margin: 0;
       padding: 0;
+      color: var(--color-text-darkest);
       font-size: .9rem;
       line-height: .8;
-      filter: brightness(var(--page-brightness));
+      transition: all var(--transition-color);
+
     }
 
-    section::after,
-    .shadowline {
+    section::after {
       content: '';
       display: block;
-      border-top: 1px solid var(--page-color);
-      filter: brightness(.7);
+      border-top: 1px solid var(--color-link-transparent);
       height: 1px;
       margin-block: 4rem;
 
@@ -212,24 +331,27 @@
 </head>
 
 <body>
+
   <header class="page__header">
     <div class="header__left">
-      <h1 class="header__title">HTML5 Test Page</h1>
+      <h1 class="header__title">HTML Test Page</h1>
       <p class="header__subtitle">This is a test page filled with common HTML elements to be used to provide visual feedback whilst building CSS systems and frameworks.</p>
     </div>
     <div class="header__right">
-      <div class="navigation">
-        <button class="navigation_button">TOC</button>
-        <nav class="navigation__content">
-          <a href="#text">Text</a>
-          <a href="#lists">Lists</a>
-          <a href="#tables">Tables</a>
-          <a href="#forms">Forms</a>
-          <a href="#media">Media</a>
-          <a href="#misc">Misc</a>
-        </nav>
-      </div>
-
+      <nav class="page--toc">
+        <button class="toc--toggle-button" aria-controls="toc--navigation" aria-expanded="false">
+          <span class="visually-hidden">Menu</span>
+          <div class="hamburger" aria-hidden="true"></div>
+        </button>
+        <ul data-state="closed" class="toc--navigation" id="toc--navigation">
+          <li> <a href="#text">Text</a></li>
+          <li><a href="#lists">Lists</a></li>
+          <li><a href="#tables">Tables</a></li>
+          <li><a href="#forms">Forms</a></li>
+          <li><a href="#media">Media</a></li>
+          <li><a href="#misc">Misc</a></li>
+        </ul>
+      </nav>
       <div class="theme-toggle"></div>
     </div>
   </header>
@@ -245,20 +367,20 @@
         color: var(--color-text-transparent);
       }
 
-      .text-low {
-        color: var(--color-text-low);
+      .text-dark {
+        color: var(--color-text-dark);
       }
 
-      .text-lowest {
-        color: var(--color-text-lowest);
+      .text-darkest {
+        color: var(--color-text-darkest);
       }
 
-      .text-high {
-        color: var(--color-text-high);
+      .text-light {
+        color: var(--color-text-light);
       }
 
-      .text-highest {
-        color: var(--color-text-highest);
+      .text-lightest {
+        color: var(--color-text-lightest);
       }
 
       .link {
@@ -269,20 +391,20 @@
         color: var(--color-link-transparent);
       }
 
-      .link-low {
-        color: var(--color-link-low);
+      .link-dark {
+        color: var(--color-link-dark);
       }
 
-      .link-lowest {
-        color: var(--color-link-lowest);
+      .link-darkest {
+        color: var(--color-link-darkest);
       }
 
-      .link-high {
-        color: var(--color-link-high);
+      .link-light {
+        color: var(--color-link-light);
       }
 
-      .link-highest {
-        color: var(--color-link-highest);
+      .link-lightest {
+        color: var(--color-link-lightest);
       }
 
       .background {
@@ -293,20 +415,20 @@
         background-color: var(--color-background-transparent);
       }
 
-      .background-low {
-        background-color: var(--color-background-low);
+      .background-dark {
+        background-color: var(--color-background-dark);
       }
 
-      .background-lowest {
-        background-color: var(--color-background-lowest);
+      .background-darkest {
+        background-color: var(--color-background-darkest);
       }
 
-      .background-high {
-        background-color: var(--color-background-high);
+      .background-light {
+        background-color: var(--color-background-light);
       }
 
-      .background-highest {
-        background-color: var(--color-background-highest);
+      .background-lightest {
+        background-color: var(--color-background-lightest);
       }
 
       .color-flex {
@@ -318,11 +440,14 @@
       .color-flex>div {
         width: 18%;
         padding-top: 1rem;
-        border: 1px solid var(--color-text-lowest);
+        border: 1px solid var(--color-text-darkest);
         border-radius: 5px;
+        font-size: 1.2rem;
+        transition: all var(--transition-color);
       }
 
       .color-flex>div>div {
+        transition: all var(--transition-color);
         padding: 1rem;
       }
     </style>
@@ -337,85 +462,85 @@
 
       <div class="color-flex">
 
-        <div class="background-lowest">
-          <h4 style="text-align:center">Background-lowest</h4>
+        <div class="background-darkest">
+          <h4 style="text-align:center">Background-darkest</h4>
           <div class="text-transparent">Text-transparent</div>
-          <div class="text-lowest">Text-lowest</div>
-          <div class="text-low">Text-low</div>
+          <div class="text-darkest">Text-darkest</div>
+          <div class="text-dark">Text-dark</div>
           <div class="text">Text</div>
-          <div class="text-high">Text-high</div>
-          <div class="text-highest">Text-highest</div>
+          <div class="text-light">Text-light</div>
+          <div class="text-lightest">Text-lightest</div>
           <div class="link-transparent">Link-transparent</div>
-          <div class="link-lowest">Link-lowest</div>
-          <div class="link-low">Link-low</div>
+          <div class="link-darkest">Link-darkest</div>
+          <div class="link-dark">Link-dark</div>
           <div class="link">Link</div>
-          <div class="link-high">Link-high</div>
-          <div class="link-highest">Link-highest</div>
+          <div class="link-light">Link-light</div>
+          <div class="link-lightest">Link-lightest</div>
         </div>
 
-        <div class="background-low">
-          <h4 style="text-align:center">Background-low</h4>
+        <div class="background-dark">
+          <h4 style="text-align:center">Background-dark</h4>
           <div class="text-transparent">Text-transparent</div>
-          <div class="text-lowest">Text-lowest</div>
-          <div class="text-low">Text-low</div>
+          <div class="text-darkest">Text-darkest</div>
+          <div class="text-dark">Text-dark</div>
           <div class="text">Text</div>
-          <div class="text-high">Text-high</div>
-          <div class="text-highest">Text-highest</div>
+          <div class="text-light">Text-light</div>
+          <div class="text-lightest">Text-lightest</div>
           <div class="link-transparent">Link-transparent</div>
-          <div class="link-lowest">Link-lowest</div>
-          <div class="link-low">Link-low</div>
+          <div class="link-darkest">Link-darkest</div>
+          <div class="link-dark">Link-dark</div>
           <div class="link">Link</div>
-          <div class="link-high">Link-high</div>
-          <div class="link-highest">Link-highest</div>
+          <div class="link-light">Link-light</div>
+          <div class="link-lightest">Link-lightest</div>
         </div>
 
         <div class="background">
           <h4 style="text-align:center">Background</h4>
           <div class="text-transparent">Text-transparent</div>
-          <div class="text-lowest">Text-lowest</div>
-          <div class="text-low">Text-low</div>
+          <div class="text-darkest">Text-darkest</div>
+          <div class="text-dark">Text-dark</div>
           <div class="text">Text</div>
-          <div class="text-high">Text-high</div>
-          <div class="text-highest">Text-highest</div>
+          <div class="text-light">Text-light</div>
+          <div class="text-lightest">Text-lightest</div>
           <div class="link-transparent">Link-transparent</div>
-          <div class="link-lowest">Link-lowest</div>
-          <div class="link-low">Link-low</div>
+          <div class="link-darkest">Link-darkest</div>
+          <div class="link-dark">Link-dark</div>
           <div class="link">Link</div>
-          <div class="link-high">Link-high</div>
-          <div class="link-highest">Link-highest</div>
+          <div class="link-light">Link-light</div>
+          <div class="link-lightest">Link-lightest</div>
         </div>
 
-        <div class="background-high">
-          <h4 style="text-align:center">Background-high</h4>
+        <div class="background-light">
+          <h4 style="text-align:center">Background-light</h4>
           <div class="text-transparent">Text-transparent</div>
-          <div class="text-lowest">Text-lowest</div>
-          <div class="text-low">Text-low</div>
+          <div class="text-darkest">Text-darkest</div>
+          <div class="text-dark">Text-dark</div>
           <div class="text">Text</div>
-          <div class="text-high">Text-high</div>
-          <div class="text-highest">Text-highest</div>
+          <div class="text-light">Text-light</div>
+          <div class="text-lightest">Text-lightest</div>
           <div class="link-transparent">Link-transparent</div>
-          <div class="link-lowest">Link-lowest</div>
-          <div class="link-low">Link-low</div>
+          <div class="link-darkest">Link-darkest</div>
+          <div class="link-dark">Link-dark</div>
           <div class="link">Link</div>
-          <div class="link-high">Link-high</div>
-          <div class="link-highest">Link-highest</div>
+          <div class="link-light">Link-light</div>
+          <div class="link-lightest">Link-lightest</div>
         </div>
 
 
-        <div class="background-highest">
-          <h4 style="text-align:center">Background-highest</h4>
+        <div class="background-lightest">
+          <h4 style="text-align:center">Background-lightest</h4>
           <div class="text-transparent">Text-transparent</div>
-          <div class="text-lowest">Text-lowest</div>
-          <div class="text-low">Text-low</div>
+          <div class="text-darkest">Text-darkest</div>
+          <div class="text-dark">Text-dark</div>
           <div class="text">Text</div>
-          <div class="text-high">Text-high</div>
-          <div class="text-highest">Text-highest</div>
+          <div class="text-light">Text-light</div>
+          <div class="text-lightest">Text-lightest</div>
           <div class="link-transparent">Link-transparent</div>
-          <div class="link-lowest">Link-lowest</div>
-          <div class="link-low">Link-low</div>
+          <div class="link-darkest">Link-darkest</div>
+          <div class="link-dark">Link-dark</div>
           <div class="link">Link</div>
-          <div class="link-high">Link-high</div>
-          <div class="link-highest">Link-highest</div>
+          <div class="link-light">Link-light</div>
+          <div class="link-lightest">Link-lightest</div>
         </div>
 
       </div>
@@ -471,7 +596,102 @@
       <p>Modern palaeontology has often classified Archaeopteryx as the most primitive bird. However, it is not thought to be a true ancestor of modern birds, but rather a close relative of that ancestor. Nonetheless, Archaeopteryx was often used as a model of the true ancestral bird. Several authors have done so. Lowe (1935) and Thulborn (1984) questioned whether Archaeopteryx truly was the first bird. They suggested that Archaeopteryx was a dinosaur that was no more closely related to birds than were other
         dinosaur groups. Kurzanov (1987) suggested that Avimimus was more likely to be the ancestor of all birds than Archaeopteryx. Barsbold (1983) and Zweers and Van den Berge (1997) noted that many maniraptoran lineages are extremely birdlike, and they suggested that different groups of birds may have descended from different dinosaur ancestors.</p>
 
-      <div class="shadowline"></div>
+      <h3>Classification</h3>
+      <p>
+      <ul>
+        <li>
+          <a href="#">a Link</a>
+        </li>
+        <li>
+          <b>bold</b>
+        </li>
+        <li>
+          <i>italic</i>
+        </li>
+        <li>
+          <s>strikethrough</s>
+        </li>
+        <li>
+          <u>underline</u>
+        </li>
+        <li>
+          <sup>superscript</sup>
+        </li>
+        <li>
+          <sub>subscript</sub>
+        </li>
+        <li>
+          <small>small</small>
+        </li>
+        <li>
+          <big>big</big>
+        </li>
+        <li>
+          <mark>mark</mark>
+        </li>
+        <li>
+          <del>delete</del>
+        </li>
+        <li>
+          <ins>insert</ins>
+        </li>
+        <li>
+          <em>emphasis</em>
+        </li>
+        <li>
+          <strong>strong</strong>
+        </li>
+        <li>
+          <code>code</code>
+        </li>
+        <li>
+          <kbd>keyboard</kbd>
+        </li>
+        <li>
+          <samp>sample</samp>
+        </li>
+        <li>
+          <var>variable</var>
+        </li>
+        <li>
+          <cite>cite</cite>
+        </li>
+        <li>
+          <abbr>abbr</abbr>
+        </li>
+        <li>
+          <dfn>dfn</dfn>
+        </li>
+        <li>
+          <time>time</time>
+        </li>
+        <li>
+          <q>quote</q>
+        </li>
+        <li>
+          <blockquote>blockquote</blockquote>
+        </li>
+        <li>
+          <address>address</address>
+        </li>
+        <li>
+          <pre>pre</pre>
+        </li>
+        <li>
+          <bdo>bdo</bdo>
+        </li>
+        <li>
+          <span>span</span>
+        </li>
+        <li>
+          <br>br
+        </li>
+        <li>
+          <wbr>wbr
+        </li>
+
+      </ul>
+      </p>
       <h2>Blockquotes</h2>
       <blockquote>
         <p>A block quotation (also known as a long quotation or extract) is a quotation in a written document, that is set off from the main as a paragraph, or block of text.</p>
@@ -950,8 +1170,8 @@
           </p>
         </fieldset>
         <p><a href="#top">[Top]</a></p>
-        <fieldset id="forms__html5">
-          <legend>HTML5 inputs</legend>
+        <fieldset id="forms__HTML">
+          <legend>HTML inputs</legend>
           <p>
             <label for="ic">Color input</label>
             <input type="color" id="ic" value="#000000">
@@ -1016,10 +1236,32 @@
   </main>
 
   <footer class="page__footer">
-    <p class="footer__text">Made by <a href="http://twitter.com/cbracco">@cbracco</a>. Code on <a href="http://github.com/cbracco/html5-test-page">GitHub</a>.</p>
+    <p class="footer__text">Made by <a href="http://twitter.com/cbracco">@cbracco</a>. Code on <a href="http://github.com/cbracco/HTML-test-page">GitHub</a>.</p>
   </footer>
 
   <script src="./js/toggleTheme.js"></script>
+  <script>
+    const menuToggle = document.querySelector('.toc--toggle-button');
+    const siteNavigation = document.querySelector('.toc--navigation');
+
+    menuToggle.addEventListener('click', () => {
+      const isOpened = menuToggle.getAttribute('aria-expanded') === "true";
+      isOpened ? closeMenu() : openMenu();
+    });
+
+    function openMenu() {
+      menuToggle.setAttribute('aria-expanded', "true");
+      siteNavigation.setAttribute('data-state', "opened");
+    }
+    function closeMenu() {
+      menuToggle.setAttribute('aria-expanded', "false");
+      siteNavigation.setAttribute('data-state', "closing");
+
+      siteNavigation.addEventListener('animationend', () => {
+        siteNavigation.setAttribute('data-state', "closed");
+      }, {once: true})
+    }
+  </script>
 </body>
 
 </html>
