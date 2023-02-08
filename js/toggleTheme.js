@@ -68,8 +68,8 @@ STYLE.innerHTML = /*CSS*/ `
 
 #sunmoon {
   cursor: pointer;
-  fill:var(--color-link-light);
-  stroke:var(--color-link-light);
+  fill:var(--color-link-high);
+  stroke:var(--color-link-high);
   transition: all 0.3s ease;
 }
 
