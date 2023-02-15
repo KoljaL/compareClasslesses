@@ -39,6 +39,32 @@
     --color-background: hsl(var(--color-background-H), var(--color-background-S), 90%);
     --color-background-high: hsl(var(--color-background-H), var(--color-background-S), 95%);
     --color-background-highest: hsl(var(--color-background-H), var(--color-background-S), 100%);
+
+    /* SLEEKDB COLORS */
+    /* Text */
+    --color-text-transparent: hsla(240, 1%, 70%, 0.5);
+    --color-text-lowest: hsl(240, 1%, 65%);
+    --color-text-low: hsl(240, 1%, 50%);
+    --color-text: hsl(240, 1%, 25%);
+    --color-text-high: hsl(240, 1%, 15%);
+    --color-text-highest: hsl(240, 1%, 10%);
+
+    /* Link */
+    --color-link-transparent: hsla(268, 90%, 45%, 0.3);
+    --color-link-lowest: hsl(268, 90%, 35%);
+    --color-link-low: hsl(268, 90%, 40%);
+    --color-link: hsl(268, 90%, 45%);
+    --color-link-high: hsl(268, 90%, 60%);
+    --color-link-highest: hsl(268, 90%, 70%);
+
+    /* Background */
+    --color-background-transparent: hsla(240, 5%, 95%, 0.15);
+    --color-background-lowest: hsl(240, 7%, 85%);
+    --color-background-low: hsl(240, 6%, 90%);
+    --color-background: hsl(240, 5%, 95%);
+    --color-background-high: hsl(240, 6%, 98%);
+    --color-background-highest: hsl(240, 7%, 100%);
+
     /* Colors */
     --color-blue: hsl(216, 98%, 52%);
     --color-indigo: hsl(263, 90%, 51%);
@@ -69,6 +95,7 @@
     --color-text-high: hsl(var(--color-text-H), var(--color-text-S), 90%);
     --color-text-highest: hsl(var(--color-text-H), var(--color-text-S), 100%);
     /* Link */
+    --org: hsl(268, 75%, 44%);
     --color-link-H: 268;
     --color-link-S: 75%;
     --color-link-transparent: hsla(var(--color-link-H), var(--color-link-S), 80%, 0.15);
@@ -81,16 +108,34 @@
     --color-background-H: 0;
     --color-background-S: 0%;
     --color-background-transparent: hsla(var(--color-background-H), var(--color-background-S), 20%, 0.15);
-    /* --color-background-lowest: hsl(var(--color-background-H), var(--color-background-S), 28%);
-    --color-background-low: hsl(var(--color-background-H), var(--color-background-S), 24%);
-    --color-background: hsl(var(--color-background-H), var(--color-background-S), 20%);
-    --color-background-high: hsl(var(--color-background-H), var(--color-background-S), 16%);
-    --color-background-highest: hsl(var(--color-background-H), var(--color-background-S), 12%); */
     --color-background-lowest: hsl(var(--color-background-H), var(--color-background-S), 12%);
     --color-background-low: hsl(var(--color-background-H), var(--color-background-S), 16%);
     --color-background: hsl(var(--color-background-H), var(--color-background-S), 20%);
     --color-background-high: hsl(var(--color-background-H), var(--color-background-S), 24%);
     --color-background-highest: hsl(var(--color-background-H), var(--color-background-S), 28%);
+
+    /* SLEEKDB COLORS */
+    /* Text */
+    --color-text-transparent: hsla(240, 1%, 85%, 0.15);
+    --color-text-lowest: hsl(240, 1%, 55%);
+    --color-text-low: hsl(240, 1%, 70%);
+    --color-text: hsl(240, 1%, 85%);
+    --color-text-high: hsl(240, 1%, 95%);
+    --color-text-highest: hsl(240, 1%, 100%);
+    /* Link */
+    --color-link-transparent: hsla(268, 90%, 65%, 0.45);
+    --color-link-lowest: hsl(268, 90%, 40%);
+    --color-link-low: hsl(268, 90%, 55%);
+    --color-link: hsl(268, 90%, 65%);
+    --color-link-high: hsl(268, 90%, 75%);
+    --color-link-highest: hsl(268, 90%, 80%);
+    /* Background */
+    --color-background-transparent: hsla(240, 5%, 16%, 0.15);
+    --color-background-lowest: hsl(240, 7%, 8%);
+    --color-background-low: hsl(240, 6%, 12%);
+    --color-background: hsl(240, 5%, 16%);
+    --color-background-high: hsl(240, 6%, 20%);
+    --color-background-highest: hsl(240, 7%, 24%);
     /* Colors */
     --color-blue: hsl(216, 98%, 52%);
     --color-indigo: hsl(263, 90%, 51%);
@@ -105,14 +150,88 @@
     --color-black: hsl(0, 0%, 0%);
     --color-white: hsl(0, 0%, 100%);
     --color-gray: hsl(208, 7%, 46%);
+    /* WEBDEV EXAMPLE */
+    --wd-red: hsl(5, 81%, 56%);
+    --wd-yellow: hsl(45, 97%, 50%);
+    --wd-green: hsl(136, 53%, 43%);
+    --wd-blue: hsl(217, 89%, 61%);
+    /* CLOUDCANNON COLORS */
+    --blue-200: hsl(206, 100%, 97%);
+    --cloudcannon-blue: hsl(220, 97%, 43%);
+    --periwinkle: hsl(220, 100%, 97%);
+    --stratus: hsl(0, 0%, 96%);
+    --neptune: hsl(221, 29%, 29%);
+    --storm: hsl(224, 31%, 14%);
+    --carbon: hsl(0, 0%, 22%);
+    --cloud: hsl(0, 0%, 99%);
+    --flaming-mo: hsl(356, 86%, 58%);
+    --pesto: hsl(104, 34%, 38%);
+    --plantasia: hsl(89, 46%, 48%);
+    --hoiho: hsl(46, 100%, 95%);
+    --goose: hsl(42, 100%, 63%);
+    --hoiho-500: hsl(51, 90%, 68%);
+    --hoiho-green: #ccd39f;
+    --arctic: hsl(199, 100%, 92%);
+    --vanilla: hsl(48, 89%, 93%);
+    --minty: hsl(180, 55%, 54%);
+    --minty-light: hsl(179, 46%, 81%);
+    --denim: hsl(216, 45%, 45%);
+    --soothing-gray: hsl(0, 0%, 96%);
+    --border-color: #eeeeee;
+    --grey-100: hsl(0, 0%, 96%);
+    --grey-200: hsl(0, 0%, 81%);
+    --grey-600: hsl(0, 0%, 59%);
+    --grey-800: hsl(0, 0%, 44%);
+    --nimbus: hsl(0, 0%, 53%);
+    --stone: hsl(48, 20%, 95%);
     /* Filter */
     --filter-img: brightness(0.8);
 }
 
+/*
+ * FONT
+ */
+
+@font-face {
+    font-display: swap;
+    font-family: 'Overpass-Light';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../font/Overpass/Overpass-Light.woff2') format('woff2');
+    /* src: url('../font/Overpass/Overpass-Thin.woff2') format('woff2'); */
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Overpass-Regular';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../font/Overpass/Overpass-Medium.woff2') format('woff2');
+    /* src: url('../font/Overpass/Overpass-Regular.woff2') format('woff2'); */
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Overpass-Mono';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../font/Overpass/OverpassMono-Regular.woff2') format('woff2');
+    /* src: url('../font/Overpass/Overpass-Regular.woff2') format('woff2'); */
+}
+@font-face {
+    font-display: swap;
+    font-family: 'JetBrains-Mono';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../font/JetBrainsMono/JetBrainsMono-Regular.woff2') format('woff2');
+    /* src: url('../font/Overpass/Overpass-Regular.woff2') format('woff2'); */
+}
 :root {
     /* Font */
     --font-family-text: 'Overpass-Light', Arial, sans-serif;
     --font-family-headline: 'Overpass-Regular', Arial, sans-serif;
+    --font-family-code: 'Overpass-Mono', Courier, monospace;
+    --font-family-code-alt: 'JetBrains-Mono', Courier, monospace;
     --font-size-root: 16px;
     --font-weight-bolder: 700;
     --font-weight-bold: 400;
@@ -251,21 +370,6 @@
 }
 
 /*
- * FONT
- */
-@font-face {
-    font-family: Overpass-Light;
-    src: url('../font/Overpass-Light.woff2') format('woff2');
-    /* src: url('../font/Overpass-Thin.woff2') format('woff2'); */
-}
-
-@font-face {
-    font-family: Overpass-Regular;
-    src: url('../font/Overpass-Medium.woff2') format('woff2');
-    /* src: url('../font/Overpass-Regular.woff2') format('woff2'); */
-}
-
-/*
  * for ALL ELEMENTS
  */
 * {
@@ -276,6 +380,16 @@
 
 ::-webkit-scrollbar {
     display: none;
+}
+
+* {
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        scroll-behavior: auto;
+    }
 }
 
 /*
@@ -419,7 +533,20 @@ q:before,
 q:after {
     color: var(--color-link);
 }
-
+code {
+    font-size: 1rem;
+    background-color: var(--color-background);
+    border-radius: var(--radius-x-small);
+    font-family: var(--font-family-code);
+    font-family: var(--font-family-code-alt);
+    line-height: 1;
+    min-width: 1.1rem;
+    display: inline-block;
+    padding: 0.125rem 0.25rem;
+}
+p code {
+    font-size: 0.8rem;
+}
 kbd {
     background-color: var(--color-background);
     color: var(--color-text);
@@ -441,6 +568,147 @@ kbd:hover {
 
 /*
  * 
+ * BOCKQUOTE 
+ *
+ */
+blockquote {
+    background-color: var(--color-background);
+    color: var(--color-text-high);
+    border-left: 8px solid var(--color-link);
+    padding: 0.5rem 0.5rem 0.25rem 0.5rem;
+    border-radius: var(--radius-x-small);
+    transition: all var(--transition-color);
+}
+
+blockquote.red {
+    border-left: 8px solid var(--color-red);
+}
+
+blockquote > p {
+    margin-top: 0;
+}
+blockquote > cite:before {
+    content: '— ';
+}
+
+/*
+ * 
+ * ADDRESS 
+ *
+ */
+address {
+    font-style: normal;
+    font-size: 0.9em;
+    line-height: 1.8;
+}
+
+/*
+ * 
+ * LINKS WITH ICONS 
+ *
+ */
+
+.inline-icon,
+a[href^='mailto:'],
+a[href^='tel:'],
+a[href^='sms:'],
+a[href^='file:'],
+a[rel~='external'],
+a[rel~='bookmark'],
+a[download] {
+    padding-left: 1.25rem;
+    position: relative;
+}
+
+.inline-icon::before,
+a[href^='mailto:']::before,
+a[href^='tel:']::before,
+a[href^='sms:']::before,
+a[href^='file:']::before,
+a[rel~='external']::before,
+a[rel~='bookmark']::before,
+a[download]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    mask-size: cover !important;
+    mask-position: center !important;
+    background-color: var(--color-link-low);
+    transition: all var(--transition-color);
+}
+
+.inline-icon:hover::before,
+a[href^='mailto:']:hover::before,
+a[href^='tel:']:hover::before,
+a[href^='sms:']:hover::before,
+a[href^='file:']:hover::before,
+a[rel~='external']:hover::before,
+a[rel~='bookmark']:hover::before,
+a[download]:hover::before {
+    background-color: var(--color-link-high);
+}
+
+a[href^='mailto:']::before {
+    mask: var(--inline-icon-mail);
+    -webkit-mask: var(--inline-icon-mail);
+}
+
+a[href^='tel:']::before {
+    mask: var(--inline-icon-phone);
+    -webkit-mask: var(--inline-icon-phone);
+}
+
+a[href^='sms:']::before {
+    mask: var(--inline-icon-sms);
+    -webkit-mask: var(--inline-icon-sms);
+}
+
+a[href^='file:']::before {
+    mask: var(--inline-icon-file);
+    -webkit-mask: var(--inline-icon-file);
+}
+
+a[download]::before {
+    mask: var(--inline-icon-download);
+    -webkit-mask: var(--inline-icon-download);
+}
+
+a[rel~='external']::before {
+    mask: var(--inline-icon-external);
+    -webkit-mask: var(--inline-icon-external);
+}
+
+a[rel~='bookmark']::before {
+    mask: var(--inline-icon-bookmark);
+    -webkit-mask: var(--inline-icon-bookmark);
+}
+
+.inline-icon.map::before {
+    mask: var(--inline-icon-map);
+    -webkit-mask: var(--inline-icon-map);
+}
+a.inline-icon.website::before {
+    mask: var(--inline-icon-website);
+    -webkit-mask: var(--inline-icon-website);
+}
+
+:root {
+    --inline-icon-mail: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40'><path d='M1,5 39,5 39,35 1,35 1,5 20,22 39,5' stroke='%23999' stroke-width='2' fill='none' /></svg>");
+    --inline-icon-phone: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40'> <path fill='none' stroke='%23999' stroke-width='1.5' d='M12.8 4 10.4 5.2C1.4 9.9 14.7 37.7 24.8 37.7 25.5 37.7 26.2 37.5 26.9 37.2L29.2 36 24.7 27.4 22.4 28.5C22.1 28.7 21.8 28.8 21.4 28.8 17.5 28.8 10.8 16 14.9 13.9L17.3 12.7 12.8 4ZM24.8 39.2C16 39.2 5.9 22 5.9 11.6 5.9 7.8 7.2 5.1 9.7 3.8L13.4 2 19.3 13.4 15.6 15.2C13.3 16.4 19.3 28.3 21.7 27.2L25.4 25.3 31.3 36.7S27.7 38.5 27.5 38.6C26.6 39 25.7 39.2 24.8 39.2' /></svg>");
+    --inline-icon-sms: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40'><path d='M2,2 38,2 38,28 22,28 12,38 12,28 2,28Z' fill='none' stroke='%23999' stroke-width='2'/></svg>");
+    --inline-icon-file: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40'><path d='M5,2 28,2 35,9 35,38 5,38Z M28,2 28,9 35,9' fill='none' stroke='%23999' stroke-width='2'/></svg>");
+    --inline-icon-download: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40'><path d='M5,2 28,2 35,9 35,38 5,38Z M28,2 28,9 35,9 M20,10 20,30 M11,21 20,30 29,21' fill='none' stroke='%23999' stroke-width='2'/></svg>");
+    --inline-icon-external: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40'><path d='M28,4 39,4 39,15 M39,4 23,20 M28,9 7,9 7,34 35,34 35,15' fill='none' stroke='%23999' stroke-width='2'/></svg>");
+    --inline-icon-bookmak: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40'><path d='M5,2 35,2 35,38 20,25 5,38Z' fill='none' stroke='%23999' stroke-width='2'/></svg>");
+    --inline-icon-map: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40'> <path fill='none' stroke='%23999' stroke-width='2' d='M 25.852 16.105 A 6.042 6.042 90 1 1 13.768 16.105 A 6.042 6.042 90 0 1 25.852 16.105 Z M 34.915 16.105 C 34.915 30.4889 19.81 38.7625 19.81 38.7625 S 4.705 30.4889 4.705 16.105 A 15.105 15.105 90 1 1 34.915 16.105 Z' /></svg>");
+    --inline-icon-website: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40'><path fill='none' stroke='%23999' stroke-width='2' d='M19.9 38.8A18.9 18.9 90 0038.2 24.6M19.9 38.8A18.9 18.9 90 011.6 24.6M19.9 38.8C25.1 38.8 29.4 30.3 29.4 19.9S25.1 1 19.9 1M19.9 38.8C14.7 38.8 10.5 30.3 10.5 19.9S14.7 1 19.9 1M19.9 1A18.9 18.9 90 0136.4 10.6M19.9 1A18.9 18.9 90 003.4 10.6M36.4 10.6A25.1 25.1 90 0119.9 16.8C13.6 16.8 7.8 14.4 3.4 10.6M36.4 10.6A18.8 18.8 90 0138.8 19.9C38.8 21.5 38.6 23.1 38.2 24.6M38.2 24.6A37.6 37.6 90 0119.9 29.4C13.3 29.4 7 27.6 1.6 24.6M1.6 24.6A18.9 18.9 90 011 19.9C1 16.5 1.9 13.4 3.4 10.6' /></svg>");
+}
+/*
+ * 
  * IMAGES 
  *
  */
@@ -449,4 +717,132 @@ img {
     height: auto;
     filter: var(--filter-img);
     transition: all var(--transition-color);
+}
+
+/*
+ * 
+ * LISTS 
+ *
+ */
+
+/* definition list  */
+
+dt {
+    font-weight: bold;
+    color: var(--color-link-low);
+}
+dd {
+    margin-left: 1rem;
+    padding: 0 0 0.5em 0;
+}
+
+dl.column {
+    --dt-width: 100px;
+}
+.column dt {
+    float: left;
+    clear: left;
+    width: var(--dt-width);
+    text-align: right;
+    font-weight: bold;
+    color: var(--color-link-low);
+}
+.column dt::after {
+    content: ': ';
+}
+.column dd {
+    margin: 0 0 0 var(--dt-width);
+    padding: 0 0 0.5em 1rem;
+}
+
+/* ordered-list  */
+ol {
+    padding-left: 0rem;
+    counter-reset: item;
+    list-style-type: none;
+    list-style-position: inside;
+    list-style-image: none;
+}
+
+ol li {
+    counter-increment: item;
+    display: table;
+}
+ol li::before {
+    display: table-cell;
+    content: counters(item, '.') '. ';
+    padding-right: 0.5em;
+    color: var(--color-link-low);
+}
+ol li li:before {
+    content: counters(item, '.') ' ';
+}
+
+ol[type='A'] li::before {
+    display: table-cell;
+    content: counter(item, upper-alpha);
+    padding-right: 0.5em;
+    color: var(--color-link-low);
+}
+ol[type='A'] li li:before {
+    /* // TODO : no nested types */
+    content: counters(item, upper-alpha, '.') ' ';
+}
+ol[type='I'] li::before {
+    display: table-cell;
+    content: counter(item, upper-roman);
+    padding-right: 0.5em;
+    color: var(--color-link-low);
+}
+ol[type='I'] li li:before {
+    /* // TODO : no nested types */
+    content: counters(item, upper-roman, '.') ' ';
+}
+/* unordered-list */
+ul {
+    padding-left: 0;
+    list-style-type: none;
+    list-style-position: inside;
+    list-style-image: none;
+}
+
+li ul {
+    padding-left: 0.75rem;
+}
+
+ul li::before {
+    content: '\2022';
+    display: inline-block;
+    color: var(--color-link-low);
+    font-weight: bold;
+    width: 0.75em;
+    /* margin-left: -1em; */
+}
+
+ul li li::before {
+    content: '-';
+}
+
+ul li li li::before {
+    content: '\2022';
+    transform: scale(0.7);
+}
+ul li li li li::before {
+    content: '-';
+    transform: scale(0.7);
+}
+
+/*
+ * 
+ * CLASS FLEX 
+ *
+ */
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: start;
+    gap: 1rem;
 }

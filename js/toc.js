@@ -141,9 +141,9 @@ style.innerHTML = /*CSS*/ `
 .toc { 
   padding: .5em; 
   line-height: 1;
-  border: 1px solid var(--secondary-darker);
+  border: 1px solid var(--color-text-transparent);
   border-radius: 5px;
-  background-color: var(--secondary-bg);
+  background-color: var(--color-background);
 }
 
 .toc ul {
@@ -159,13 +159,13 @@ style.innerHTML = /*CSS*/ `
 
 .toc li a {
   display: inline-block;
-  color: var(--primary);
+  color: var(--color-text);
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.230, 1.000, 0.320, 1.000);
 }
 
 .toc li.visible>a {
-  color: var(--secondary);
+  color: var(--color-link);
   transform: translate(5px);
 }
 
@@ -201,8 +201,8 @@ h6 a.anchor {
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='red'><path stroke-linecap='round' stroke-linejoin='round' d='M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244' /></svg>");
     background-size: cover;
     background-repeat: no-repeat;
-    filter: hue-rotate(var(--primaryHI)) saturate(40%) brightness(110%);
-    transition: filter var(--theme-toggle__classic--duration) ease;
+    // filter: hue-rotate(var(--primaryHI)) saturate(40%) brightness(110%);
+    transition: filter var(--transition-color) ease;
 }
 
 h2:hover a.anchor,

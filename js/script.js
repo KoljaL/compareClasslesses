@@ -20,3 +20,5 @@ const style = document.createElement('style');
 style.innerHTML = STYLE;
 
 document.head.appendChild(style);
+
+y;

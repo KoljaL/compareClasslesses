@@ -138,15 +138,22 @@
       list-style: none;
     }
 
+    .page--toc:hover .toc--navigation {
+      animation: clipPathCircleOpen 550ms ease-in-out forwards;
+      display: block;
+    }
+
     .toc--navigation[data-state="opened"] {
       animation: clipPathCircleOpen 550ms ease-in-out forwards;
       display: block;
     }
 
+    .page--toc:hover .toc--navigation[data-state="closing"],
     .toc--navigation[data-state="closing"] {
       animation: clipPathCircleClose 550ms ease-in-out forwards;
     }
 
+    /* .page--toc:hover .toc--navigation[data-state="closed"], */
     .toc--navigation[data-state="closed"] {
       display: none;
     }
@@ -230,6 +237,11 @@
     }
 
 
+    .page--toc li::before {
+      content: '';
+      display: none;
+    }
+
 
     .page--toc a {
       color: var(--color-link);
@@ -308,7 +320,8 @@
 
     section>header>h2,
     section>header>h3,
-    section>header>h4 {
+    section>header>h4,
+    .headline {
       margin: 0;
       padding: 0;
       color: var(--color-link-high);
@@ -317,14 +330,17 @@
       transition: all var(--transition-color);
     }
 
+    h2.headline,
     section>header>h2 {
       font-size: 2rem;
     }
 
+    h3.headline,
     section>header>h3 {
       font-size: 1.5rem;
     }
 
+    h4.headline,
     section>header>h4 {
       font-size: 1.2rem;
     }
@@ -376,11 +392,10 @@
 
 
     .inline-elements__grid {
-      grid-template-columns: repeat(auto-fit, minmax(0%, 1fr));
-      grid-column-gap: var(--grid-spacing-horizontal);
-      grid-row-gap: var(--grid-spacing-vertical);
       display: grid;
-      /* grid-template-columns: 1fr; */
+      grid-template-columns: repeat(auto-fit, minmax(0%, 1fr));
+      /* grid-column-gap: var(--grid-spacing-horizontal); */
+      /* grid-row-gap: var(--grid-spacing-vertical); */
       margin: 0;
     }
 
@@ -416,8 +431,11 @@
           <li> <a href="#colors">Colors</a></li>
           <li> <a href="#text">Text</a></li>
           <li class="level-3"> <a href="#blockquotes">Blockquotes</a></li>
-          <li class="level-4"> <a href="#blockquotes">Test Item</a></li>
           <li><a href="#inlineElements">Inline Elements</a></li>
+          <li><a href="#lists">Lists</a></li>
+          <li class="level-3"> <a href="#list-definition">Definition List</a></li>
+          <li class="level-3"> <a href="#list-ordered">Ordered Lists</a></li>
+          <li class="level-3"> <a href="#list-unordered">Unodered Lists</a></li>
           <li><a href="#tables">Tables</a></li>
           <li><a href="#forms">Forms</a></li>
           <li><a href="#media">Media</a></li>
@@ -432,7 +450,7 @@
 
     <section class="main__section">
       <header>
-        <h2 id="colors">Colors</h2>
+        <h2 id="colors" class="forTOC">Colors</h2>
         <p>Text-, Link- and Backgroundcolor from lowest to highest </p>
       </header>
 
@@ -526,8 +544,8 @@
 
 
     <section class="main__section">
-      <header id="text">
-        <h2>Text</h2>
+      <header>
+        <h2 id="text" class="forTOC">Text</h2>
         <p>Headings, Paragraphs, Blockquote, Cite, Bold, Underline, Italic, Link, Image. </p>
       </header>
 
@@ -565,14 +583,12 @@
       <h6>Phylogenetic position</h6>
       <p>Modern palaeontology has often classified Archaeopteryx as the most primitive bird. However, it is not thought to be a true ancestor of modern birds, but rather a close relative of that ancestor. Nonetheless, Archaeopteryx was often used as a model of the true ancestral bird. Several authors have done so. Lowe (1935) and Thulborn (1984) questioned whether Archaeopteryx truly was the first bird. They suggested that Archaeopteryx was a dinosaur that was no more closely related to birds than were other
         dinosaur groups. Kurzanov (1987) suggested that Avimimus was more likely to be the ancestor of all birds than Archaeopteryx. Barsbold (1983) and Zweers and Van den Berge (1997) noted that many maniraptoran lineages are extremely birdlike, and they suggested that different groups of birds may have descended from different dinosaur ancestors.</p>
-
-
       </p>
 
 
       <header>
         <h3 id="blockquotes">Blockquotes</h3>
-        <p>Blockquotes</p>
+        <p>A Bblockquote specifies a text that is quoted from another source.</p>
       </header>
 
       <blockquote>
@@ -581,10 +597,33 @@
         <cite><a href="#!">Said no one, ever.</a></cite>
       </blockquote>
 
+      <blockquote cite="http://www.worldwildlife.org/who/index.html">
+        For 50 years, WWF has been protecting the future of nature. The world's leading conservation organization, WWF works in 100 countries and is supported by 1.2 million members in the United States and close to 5 million globally.
+      </blockquote>
+
+      <blockquote class="red" cite="http://www.worldwildlife.org/who/index.html">
+        For 50 years, WWF has been protecting the future of nature. The world's leading conservation organization, WWF works in 100 countries and is supported by 1.2 million members in the United States and close to 5 million globally.
+      </blockquote>
+
+
+
+      <header>
+        <h3 id="addresss">Address</h3>
+        <p>Address</p>
+      </header>
+
+      <address>
+        Albert Einstein<br>
+        <a href="mailto:albert@einsten.org">Albert@Einstein.org</a><br>
+        <a class="inline-icon website" href="#">Einstein.com</a><br>
+        <a href="tel:albert@einsten.org">0123 4567 8910</a><br>
+        <span class="inline-icon map">Box 564, Disneyland</span><br>
+      </address>
+
 
       <section class="main__section ">
         <header id="inlineElements">
-          <h2>Inline Elements</h2>
+          <h2 class="forTOC">Inline Elements</h2>
           <p>Inline elements display in a line. They do not force the text after them to a new line.</p>
         </header>
 
@@ -665,6 +704,185 @@
       </section>
 
 
+
+      <section>
+
+        <header id="lists">
+          <h2 class="forTOC">Lists</h2>
+          <p>HTML lists allow web developers to group a set of related items in lists.</p>
+        </header>
+
+
+        <header id="list-definition">
+          <h3 class="forTOC">Definition List</h3>
+          <p>A description list is a list of terms, with a description of each term. The <code>&lt;dl&gt;</code> tag defines the description list, the <code>&lt;dt&gt;</code> tag defines the term (name), and the <code>&lt;dd&gt;</code> tag describes each term.</p>
+        </header>
+        <div class="flex-row" style="justify-content: space-between;">
+          <div class="definition-default">
+            <h4 class="headline">Default</h4>
+            <dl>
+              <dt>Theropods</dt>
+              <dd>Saurischian dinosaurs have two major subdivisions: theropods and sauropodomorphs. The theropods are a diverse and complex group that are famous for meat eating. There is evidence of other dinosaurs being omnivores, and there are some theropods that strayed from a carnivorous diet, but all of the famous dinosaurs with big sharp teeth are theropods.</dd>
+              <dt>Sauropodomorphs</dt>
+              <dd>Sauropodomorphs are a diverse group of herbivorous dinosaurs that are characterized by long necks and tails. They are the ancestors of the sauropods, which are the largest dinosaurs that ever lived. The sauropodomorphs are a diverse group, and they include some of the most famous dinosaurs, such as Diplodocus, Brachiosaurus, and Apatosaurus.</dd>
+              <dt>Ornithischians</dt>
+              <dd>Ornithischians are a diverse group of dinosaurs that are characterized by their bird-like hips. They are divided into two major groups: ornithopods and ceratopsians. The ornithopods are a diverse group of herbivorous dinosaurs that includes the famous duck-billed dinosaurs, such as Ankylosaurus and Stegosaurus. The ceratopsians are a diverse group of herbivorous dinosaurs that includes the famous horned dinosaurs, such as Triceratops and Centrosaurus.</dd>
+            </dl>
+          </div>
+
+          <div class="definition-column">
+            <h4 class="headline">Column</h4>
+            <dl class="column" style="--dt-width: 150px;">
+              <dt>Theropods</dt>
+              <dd>Saurischian dinosaurs have two major subdivisions: theropods and sauropodomorphs. The theropods are a diverse and complex group that are famous for meat eating. There is evidence of other dinosaurs being omnivores, and there are some theropods that strayed from a carnivorous diet, but all of the famous dinosaurs with big sharp teeth are theropods.</dd>
+              <dt>Sauropodomorphs</dt>
+              <dd>Sauropodomorphs are a diverse group of herbivorous dinosaurs that are characterized by long necks and tails. They are the ancestors of the sauropods, which are the largest dinosaurs that ever lived. The sauropodomorphs are a diverse group, and they include some of the most famous dinosaurs, such as Diplodocus, Brachiosaurus, and Apatosaurus.</dd>
+              <dt>Ornithischians</dt>
+              <dd>Ornithischians are a diverse group of dinosaurs that are characterized by their bird-like hips. They are divided into two major groups: ornithopods and ceratopsians. The ornithopods are a diverse group of herbivorous dinosaurs that includes the famous duck-billed dinosaurs, such as Ankylosaurus and Stegosaurus. The ceratopsians are a diverse group of herbivorous dinosaurs that includes the famous horned dinosaurs, such as Triceratops and Centrosaurus.</dd>
+            </dl>
+          </div>
+        </div>
+
+
+
+        <header>
+          <h3 id="list-ordered" class="forTOC">Ordered List</h3>
+          <p>An ordered list starts with the <code>&lt;ol&gt;</code> tag. Each list item starts with the <code>&lt;li&gt;</code> tag.</p>
+        </header>
+
+        <div class="flex-row" style="justify-content: space-between;">
+
+          <div class="type-1">
+            <h4 class="headline">Type 1</h4>
+            <ol>
+              <li>First item </li>
+              <li>Second item </li>
+              <li>Third item </li>
+              <li>Fourth item
+                <ol>
+                  <li>First item </li>
+                  <li>Second item </li>
+                  <li>Third item </li>
+                  <li>Fourth item </li>
+                  <li>Fifth item </li>
+                  <li>Sixth item </li>
+                  <li>Seventh item </li>
+                  <li>Eighth item </li>
+                  <li>Ninth item </li>
+                  <li>Tenth item </li>
+                </ol>
+              </li>
+              <li>Fifth item </li>
+              <li>Sixth item </li>
+              <li>Seventh item </li>
+              <li>Eighth item </li>
+              <li>Ninth item </li>
+              <li>Tenth item </li>
+            </ol>
+          </div>
+
+
+          <div class="type-A">
+            <h4 class="headline">Type A</h4>
+            <ol type="A">
+              <li>First item </li>
+              <li>Second item </li>
+              <li>Third item </li>
+              <li>Fourth item
+                <ol type="A">
+                  <li>First item </li>
+                  <li>Second item </li>
+                  <li>Third item </li>
+                  <li>Fourth item </li>
+                  <li>Fifth item </li>
+                  <li>Sixth item </li>
+                  <li>Seventh item </li>
+                  <li>Eighth item </li>
+                  <li>Ninth item </li>
+                  <li>Tenth item </li>
+                </ol>
+              </li>
+              <li>Fifth item </li>
+              <li>Sixth item </li>
+              <li>Seventh item </li>
+              <li>Eighth item </li>
+              <li>Ninth item </li>
+              <li>Tenth item </li>
+            </ol>
+          </div>
+
+
+          <div class="type-I">
+            <h4 class="headline">Type I</h4>
+            <ol type="I">
+              <li>First item </li>
+              <li>Second item </li>
+              <li>Third item </li>
+              <li>Fourth item
+                <ol type="I">
+                  <li>First item </li>
+                  <li>Second item </li>
+                  <li>Third item </li>
+                  <li>Fourth item </li>
+                  <li>Fifth item </li>
+                  <li>Sixth item </li>
+                  <li>Seventh item </li>
+                  <li>Eighth item </li>
+                  <li>Ninth item </li>
+                  <li>Tenth item </li>
+                </ol>
+              </li>
+              <li>Fifth item </li>
+              <li>Sixth item </li>
+              <li>Seventh item </li>
+              <li>Eighth item </li>
+              <li>Ninth item </li>
+              <li>Tenth item </li>
+            </ol>
+          </div>
+        </div>
+
+        <header>
+          <h3 id="list-unordered" class="forTOC">Unordered List</h3>
+          <p>An unordered list starts with the <code>&lt;ul&gt;</code> tag. Each list item starts with the <code>&lt;li&gt;</code> tag.</p>
+        </header>
+        <ul>
+          <li>Coffee</li>
+          <li>Tea
+            <ul>
+              <li>Black tea</li>
+              <li>Green tea</li>
+            </ul>
+          </li>
+          <li>Milk</li>
+          <li>Fruit
+            <ul>
+              <li>Bananas</li>
+              <li>Apples
+                <ul>
+                  <li>Green
+                    <ul>
+                      <li>Granny Smith</li>
+                      <li>Golden Delicious</li>
+                    </ul>
+                  </li>
+                  <li>Red
+                    <ul>
+                      <li>Red Delicious</li>
+                      <li>Jonathan</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li>Pears</li>
+            </ul>
+          </li>
+          <li>Vegetables</li>
+        </ul>
+
+      </section>
+
+
       <!-- UNDER DEVELOPMENT  UNDER DEVELOPMENT  UNDER DEVELOPMENT  UNDER DEVELOPMENT  UNDER DEVELOPMENT  UNDER DEVELOPMENT  UNDER DEVELOPMENT  UNDER DEVELOPMENT  UNDER DEVELOPMENT  UNDER DEVELOPMENT -->
       <div style="text-align: center;">
         <hr>
@@ -674,101 +892,7 @@
       <!-- UNDER DEVELOPMENT  UNDER DEVELOPMENT  UNDER DEVELOPMENT  UNDER DEVELOPMENT  UNDER DEVELOPMENT  UNDER DEVELOPMENT  UNDER DEVELOPMENT  UNDER DEVELOPMENT  UNDER DEVELOPMENT  UNDER DEVELOPMENT -->
 
 
-      <h2>Lists</h2>
 
-      <h3>Definition list</h3>
-      <dl>
-        <dt>Definition List Title</dt>
-        <dd>This is a definition list division.</dd>
-      </dl>
-      <h3>Ordered List</h3>
-      <ol type="1">
-        <li>List Item 1</li>
-        <li>
-          List Item 2
-          <ol type="A">
-            <li>List Item 1</li>
-            <li>
-              List Item 2
-              <ol type="a">
-                <li>List Item 1</li>
-                <li>
-                  List Item 2
-                  <ol type="I">
-                    <li>List Item 1</li>
-                    <li>
-                      List Item 2
-                      <ol type="i">
-                        <li>List Item 1</li>
-                        <li>List Item 2</li>
-                        <li>List Item 3</li>
-                      </ol>
-                    </li>
-                    <li>List Item 3</li>
-                  </ol>
-                </li>
-                <li>List Item 3</li>
-              </ol>
-            </li>
-            <li>List Item 3</li>
-          </ol>
-        </li>
-        <li>List Item 3</li>
-      </ol>
-      <h3>Unordered List</h3>
-      <ul>
-        <li>List Item 1</li>
-        <li>
-          List Item 2
-          <ul>
-            <li>List Item 1</li>
-            <li>
-              List Item 2
-              <ul>
-                <li>List Item 1</li>
-                <li>
-                  List Item 2
-                  <ul>
-                    <li>List Item 1</li>
-                    <li>
-                      List Item 2
-                      <ul>
-                        <li>List Item 1</li>
-                        <li>List Item 2</li>
-                        <li>List Item 3</li>
-                      </ul>
-                    </li>
-                    <li>List Item 3</li>
-                  </ul>
-                </li>
-                <li>List Item 3</li>
-              </ul>
-            </li>
-            <li>List Item 3</li>
-          </ul>
-        </li>
-        <li>List Item 3</li>
-      </ul>
-      </div>
-      <footer>
-        <p><a href="#top">[Top]</a></p>
-      </footer>
-      </article>
-      <article id="text__blockquotes">
-        <header>
-          <h1>Blockquotes</h1>
-        </header>
-        <div>
-          <blockquote>
-            <p>A block quotation (also known as a long quotation or extract) is a quotation in a written document, that is set off from the main as a paragraph, or block of text.</p>
-            <p>It is typically distinguished visually using indentation and a different typeface or smaller size quotation. It may or may not include a citation, usually placed at the bottom.</p>
-            <cite><a href="#!">Said no one, ever.</a></cite>
-          </blockquote>
-        </div>
-        <footer>
-          <p><a href="#top">[Top]</a></p>
-        </footer>
-      </article>
       <article id="text__details">
         <header>
           <h1>Details / Summary</h1>
@@ -785,13 +909,7 @@
         <header>
           <h1>Address</h1>
         </header>
-        <address>
-          Written by <a href="mailto:webmaster@example.com">Jon Doe</a>.<br>
-          Visit us at:<br>
-          Example.com<br>
-          Box 564, Disneyland<br>
-          USA
-        </address>
+
         <footer>
           <p><a href="#top">[Top]</a></p>
         </footer>
@@ -1211,9 +1329,10 @@
   </main>
 
   <footer class="page__footer">
-    <p class="footer__text">Made by <a href="http://twitter.com/cbracco">@cbracco</a>. Code on <a href="http://github.com/cbracco/HTML-test-page">GitHub</a>.</p>
+    <p class="footer__text">Made by KoljaL. Code on <a href="https://github.com/KoljaL/AlmostClassless">GitHub</a>.</p>
   </footer>
 
+  <!-- <script src="./js/toc.js"></script> -->
   <script src="./js/toggleTheme.js"></script>
   <script>
     const menuToggle = document.querySelector('.toc--toggle-button');
